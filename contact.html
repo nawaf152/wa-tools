@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>تواصل معنا | أدوات واتساب العربية</title>
+
+    <meta
+        name="description"
+        content="تواصل مع فريق موقع أدوات واتساب العربية لإرسال الملاحظات واقتراح الأدوات."
+    >
+
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#128c7e">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+        .content-page {
+            padding: 56px 0;
+        }
+
+        .content-card {
+            max-width: 720px;
+            margin-inline: auto;
+            padding: 32px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--surface);
+            box-shadow: var(--shadow);
+        }
+
+        .content-card h1 {
+            margin-top: 0;
+        }
+
+        .content-card p {
+            color: var(--text-muted);
+        }
+
+        .contact-box {
+            margin-top: 24px;
+            padding: 20px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: #f8fbfa;
+        }
+
+        .contact-email {
+            display: inline-block;
+            margin-top: 8px;
+            color: var(--primary);
+            font-weight: 800;
+            direction: ltr;
+        }
+
+        @media (max-width: 560px) {
+            .content-card {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-content">
+            <a class="logo" href="index.html">
+                <span class="logo-mark">و</span>
+                <span>أدوات واتساب العربية</span>
+            </a>
+
+            <button
+                class="menu-button"
+                type="button"
+                aria-label="فتح القائمة"
+                aria-expanded="false"
+                data-menu-button
+            >
+                القائمة
+            </button>
+
+            <nav class="main-nav" data-main-nav>
+                <a href="index.html#tools">الأدوات</a>
+                <a href="index.html#guides">الشروحات</a>
+                <a href="about.html">عن الموقع</a>
+                <a href="privacy.html">الخصوصية</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="content-page">
+        <div class="container">
+            <article class="content-card">
+                <h1>تواصل معنا</h1>
+
+                <p>
+                    نسعد باستقبال الملاحظات واقتراحات الأدوات الجديدة
+                    والإبلاغ عن المشكلات.
+                </p>
+
+                <div class="contact-box">
+                    <strong>البريد الإلكتروني</strong>
+
+                    <p>
+                        استبدل البريد التالي ببريدك الحقيقي قبل نشر الموقع:
+                    </p>
+
+                    <a
+                        class="contact-email"
+                        href="mailto:contact@example.com"
+                    >
+                        contact@example.com
+                    </a>
+                </div>
+
+                <p>
+                    لا ترسل أرقام عملاء أو بيانات حساسة داخل الرسالة.
+                </p>
+            </article>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="copyright">
+                © <span data-current-year></span>
+                أدوات واتساب العربية.
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/common.js"></script>
+</body>
+</html>
