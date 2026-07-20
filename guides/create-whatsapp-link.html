@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>كيفية إنشاء رابط واتساب مباشر مع رسالة جاهزة</title>
+
+    <meta
+        name="description"
+        content="شرح إنشاء رابط واتساب مباشر لرقم سعودي أو دولي مع رسالة جاهزة باستخدام wa.me."
+    >
+
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#128c7e">
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+    <style>
+        .article-page {
+            padding: 56px 0;
+        }
+
+        .article-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 300px;
+            gap: 28px;
+            align-items: start;
+        }
+
+        .article-card,
+        .article-sidebar {
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--surface);
+            box-shadow: var(--shadow);
+        }
+
+        .article-card {
+            padding: 34px;
+        }
+
+        .article-sidebar {
+            padding: 22px;
+        }
+
+        .article-card h1 {
+            margin-top: 0;
+            line-height: 1.45;
+        }
+
+        .article-card h2 {
+            margin-top: 34px;
+            margin-bottom: 10px;
+        }
+
+        .article-card p,
+        .article-card li {
+            color: var(--text-muted);
+        }
+
+        .article-card ul,
+        .article-card ol {
+            padding-right: 24px;
+        }
+
+        .code-box {
+            margin: 16px 0;
+            padding: 16px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: #f6f8f7;
+            direction: ltr;
+            text-align: left;
+            overflow-wrap: anywhere;
+            font-family: Consolas, monospace;
+        }
+
+        .example-box {
+            margin: 20px 0;
+            padding: 18px;
+            border-right: 4px solid var(--primary);
+            border-radius: 10px;
+            background: #f4fbf8;
+        }
+
+        .article-sidebar h2 {
+            margin-top: 0;
+            font-size: 1.1rem;
+        }
+
+        .sidebar-links {
+            display: grid;
+            gap: 10px;
+        }
+
+        .sidebar-links a {
+            color: var(--primary);
+            font-weight: 800;
+        }
+
+        @media (max-width: 850px) {
+            .article-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .article-card {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-content">
+            <a class="logo" href="../index.html">
+                <span class="logo-mark">و</span>
+                <span>أدوات واتساب العربية</span>
+            </a>
+
+            <button
+                class="menu-button"
+                type="button"
+                aria-label="فتح القائمة"
+                aria-expanded="false"
+                data-menu-button
+            >
+                القائمة
+            </button>
+
+            <nav class="main-nav" data-main-nav>
+                <a href="../index.html#tools">الأدوات</a>
+                <a href="../index.html#guides">الشروحات</a>
+                <a href="../about.html">عن الموقع</a>
+                <a href="../privacy.html">الخصوصية</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="article-page">
+        <div class="container article-layout">
+            <article class="article-card">
+                <h1>كيفية إنشاء رابط واتساب مباشر مع رسالة جاهزة</h1>
+
+                <p>
+                    رابط واتساب المباشر يسمح للعميل بفتح محادثة مع رقم محدد
+                    دون الحاجة إلى حفظ الرقم في جهات الاتصال. ويمكنك أيضًا
+                    إضافة رسالة جاهزة تظهر داخل مربع الكتابة.
+                </p>
+
+                <h2>الصيغة الأساسية لرابط واتساب</h2>
+
+                <p>
+                    تتكون الصيغة الأساسية من نطاق واتساب ثم رقم الجوال
+                    بصيغته الدولية دون علامة الجمع أو المسافات.
+                </p>
+
+                <div class="code-box">
+                    https://wa.me/رقم_الجوال
+                </div>
+
+                <div class="example-box">
+                    <strong>مثال لرقم سعودي:</strong>
+
+                    <div class="code-box">
+                        https://wa.me/966551234567
+                    </div>
+                </div>
+
+                <h2>كيفية إضافة رسالة جاهزة</h2>
+
+                <p>
+                    لإضافة رسالة استخدم المعامل
+                    <code>?text=</code>
+                    بعد الرقم. يجب ترميز المسافات والحروف العربية بطريقة
+                    مناسبة للرابط، ولذلك من الأسهل استخدام أداة تلقائية.
+                </p>
+
+                <div class="code-box">
+                    https://wa.me/966551234567?text=السلام%20عليكم
+                </div>
+
+                <h2>خطوات إنشاء الرابط</h2>
+
+                <ol>
+                    <li>اكتب رقم الجوال مع رمز الدولة.</li>
+                    <li>احذف علامة الجمع والمسافات والشرطات.</li>
+                    <li>أضف الرقم بعد <code>https://wa.me/</code>.</li>
+                    <li>أضف رسالة جاهزة عند الحاجة.</li>
+                    <li>اختبر الرابط قبل مشاركته.</li>
+                </ol>
+
+                <h2>الصيغة الصحيحة للرقم السعودي</h2>
+
+                <p>
+                    الرقم المحلي مثل:
+                </p>
+
+                <div class="code-box">
+                    0551234567
+                </div>
+
+                <p>
+                    يتحول داخل رابط واتساب إلى:
+                </p>
+
+                <div class="code-box">
+                    966551234567
+                </div>
+
+                <p>
+                    نحذف الصفر الأول ونضيف رمز السعودية 966.
+                </p>
+
+                <h2>أخطاء شائعة</h2>
+
+                <ul>
+                    <li>استخدام الرقم بصيغة 05 داخل الرابط.</li>
+                    <li>إضافة علامة + قبل رمز الدولة.</li>
+                    <li>وجود مسافات أو شرطات داخل الرقم.</li>
+                    <li>إدخال رقم غير مرتبط بحساب واتساب.</li>
+                    <li>نسخ رسالة عربية دون ترميزها للرابط.</li>
+                </ul>
+
+                <h2>استخدامات رابط واتساب</h2>
+
+                <ul>
+                    <li>وضعه في السيرة الذاتية على إنستغرام.</li>
+                    <li>إضافته إلى موقع المتجر.</li>
+                    <li>مشاركته مع العملاء في الإعلانات.</li>
+                    <li>تحويله إلى رمز QR.</li>
+                    <li>تجهيز رابط خاص بكل منتج أو خدمة.</li>
+                </ul>
+
+                <div class="example-box">
+                    <strong>أنشئ الرابط تلقائيًا:</strong>
+
+                    <p>
+                        استخدم أداة مولد رابط واتساب لتنسيق الرقم والرسالة
+                        دون كتابة الرابط يدويًا.
+                    </p>
+
+                    <a
+                        class="button button-primary"
+                        href="../tools/whatsapp-link.html"
+                    >
+                        فتح مولد رابط واتساب
+                    </a>
+                </div>
+            </article>
+
+            <aside class="article-sidebar">
+                <h2>أدوات مرتبطة</h2>
+
+                <div class="sidebar-links">
+                    <a href="../tools/whatsapp-link.html">
+                        مولد رابط واتساب
+                    </a>
+
+                    <a href="../tools/saudi-phone-formatter.html">
+                        منسق الرقم السعودي
+                    </a>
+
+                    <a href="../tools/qr-generator.html">
+                        مولد رمز QR
+                    </a>
+                </div>
+
+                <h2 style="margin-top: 26px;">شروحات أخرى</h2>
+
+                <div class="sidebar-links">
+                    <a href="saudi-phone-number-format.html">
+                        صيغة الرقم السعودي
+                    </a>
+
+                    <a href="whatsapp-business-messages.html">
+                        رسائل واتساب للأعمال
+                    </a>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="copyright">
+                © <span data-current-year></span>
+                أدوات واتساب العربية.
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/common.js"></script>
+</body>
+</html>
