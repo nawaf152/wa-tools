@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>مولد رمز QR مجاني للروابط وواتساب</title>
+
+    <meta
+        name="description"
+        content="أنشئ رمز QR مجاني لرابط واتساب أو متجر أو موقع إلكتروني، ثم نزّله بصيغة PNG."
+    >
+
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#128c7e">
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+    <style>
+        .tool-page {
+            padding: 54px 0;
+        }
+
+        .breadcrumb {
+            margin-bottom: 22px;
+            color: var(--text-muted);
+            font-size: 0.92rem;
+        }
+
+        .breadcrumb a {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .tool-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 340px;
+            align-items: start;
+            gap: 28px;
+        }
+
+        .tool-panel,
+        .side-panel {
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--surface);
+            box-shadow: var(--shadow);
+        }
+
+        .tool-panel {
+            padding: 28px;
+        }
+
+        .side-panel {
+            padding: 22px;
+        }
+
+        .tool-title {
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+
+        .tool-description {
+            margin-top: 0;
+            margin-bottom: 26px;
+            color: var(--text-muted);
+        }
+
+        .form-group {
+            display: grid;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-weight: 800;
+        }
+
+        .input,
+        .select {
+            width: 100%;
+            min-height: 48px;
+            padding: 10px 13px;
+            border: 1px solid var(--border);
+            border-radius: 11px;
+            background: #fff;
+            color: var(--text);
+            outline: none;
+        }
+
+        .input:focus,
+        .select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(18, 140, 126, 0.12);
+        }
+
+        .form-help {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .result-box {
+            display: none;
+            margin-top: 26px;
+            padding: 24px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: #f8fbfa;
+            text-align: center;
+        }
+
+        .result-box.is-visible {
+            display: block;
+        }
+
+        .qr-wrapper {
+            display: inline-grid;
+            place-items: center;
+            min-width: 280px;
+            min-height: 280px;
+            padding: 16px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: #fff;
+        }
+
+        #qrCanvas {
+            display: grid;
+            place-items: center;
+        }
+
+        #qrCanvas img,
+        #qrCanvas canvas {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .result-text {
+            margin: 16px 0 0;
+            color: var(--text-muted);
+            overflow-wrap: anywhere;
+            direction: ltr;
+            text-align: center;
+        }
+
+        .result-actions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .error-message {
+            display: none;
+            margin-top: 14px;
+            padding: 12px 14px;
+            border: 1px solid #f0b4b0;
+            border-radius: 10px;
+            background: #fff1f0;
+            color: var(--danger);
+            font-weight: 700;
+        }
+
+        .error-message.is-visible {
+            display: block;
+        }
+
+        .side-panel h2 {
+            margin-top: 0;
+            font-size: 1.15rem;
+        }
+
+        .tips-list {
+            margin: 0;
+            padding-right: 20px;
+            color: var(--text-muted);
+        }
+
+        .tips-list li + li {
+            margin-top: 10px;
+        }
+
+        .privacy-note {
+            margin-top: 20px;
+            padding: 14px;
+            border-radius: 10px;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 850px) {
+            .tool-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .tool-panel {
+                padding: 20px;
+            }
+
+            .actions,
+            .result-actions {
+                display: grid;
+            }
+
+            .qr-wrapper {
+                min-width: 100%;
+                min-height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-content">
+            <a class="logo" href="../index.html" aria-label="الصفحة الرئيسية">
+                <span class="logo-mark">و</span>
+                <span>أدوات واتساب العربية</span>
+            </a>
+
+            <button
+                class="menu-button"
+                type="button"
+                aria-label="فتح القائمة"
+                aria-expanded="false"
+                data-menu-button
+            >
+                القائمة
+            </button>
+
+            <nav class="main-nav" aria-label="التنقل الرئيسي" data-main-nav>
+                <a href="../index.html#tools">الأدوات</a>
+                <a href="../index.html#guides">الشروحات</a>
+                <a href="../about.html">عن الموقع</a>
+                <a href="../privacy.html">الخصوصية</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="tool-page">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="../index.html">الرئيسية</a>
+                /
+                مولد رمز QR
+            </div>
+
+            <div class="tool-layout">
+                <section class="tool-panel">
+                    <h1 class="tool-title">مولد رمز QR</h1>
+
+                    <p class="tool-description">
+                        أدخل رابط واتساب أو أي رابط إلكتروني، ثم أنشئ رمز QR ونزّله كصورة.
+                    </p>
+
+                    <form id="qrForm" novalidate>
+                        <div class="form-group">
+                            <label for="qrText">الرابط أو النص</label>
+
+                            <input
+                                id="qrText"
+                                class="input"
+                                type="text"
+                                placeholder="مثال: https://wa.me/966551234567"
+                                required
+                            >
+
+                            <span class="form-help">
+                                يمكنك استخدام رابط واتساب، رابط متجر، موقع، قائمة طعام أو أي نص.
+                            </span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="qrSize">حجم الصورة</label>
+
+                            <select id="qrSize" class="select">
+                                <option value="256">256 × 256</option>
+                                <option value="384">384 × 384</option>
+                                <option value="512">512 × 512</option>
+                            </select>
+                        </div>
+
+                        <div class="actions">
+                            <button class="button button-primary" type="submit">
+                                إنشاء رمز QR
+                            </button>
+
+                            <button
+                                id="sampleButton"
+                                class="button button-secondary"
+                                type="button"
+                            >
+                                إضافة مثال
+                            </button>
+
+                            <button
+                                id="clearButton"
+                                class="button button-secondary"
+                                type="button"
+                            >
+                                مسح
+                            </button>
+                        </div>
+
+                        <div
+                            id="errorMessage"
+                            class="error-message"
+                            role="alert"
+                        ></div>
+                    </form>
+
+                    <div id="resultBox" class="result-box">
+                        <div class="qr-wrapper">
+                            <div id="qrCanvas"></div>
+                        </div>
+
+                        <p id="resultText" class="result-text"></p>
+
+                        <div class="result-actions">
+                            <button
+                                id="downloadButton"
+                                class="button button-primary"
+                                type="button"
+                            >
+                                تنزيل PNG
+                            </button>
+
+                            <button
+                                id="copyTextButton"
+                                class="button button-secondary"
+                                type="button"
+                            >
+                                نسخ الرابط
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <aside class="side-panel">
+                    <h2>استخدامات شائعة</h2>
+
+                    <ul class="tips-list">
+                        <li>رابط واتساب على بطاقة العمل.</li>
+                        <li>قائمة طعام رقمية.</li>
+                        <li>رابط متجر أو منتج.</li>
+                        <li>موقع على خرائط Google.</li>
+                        <li>استبيان أو نموذج تسجيل.</li>
+                    </ul>
+
+                    <div class="privacy-note">
+                        يتم إنشاء رمز QR داخل متصفحك، ولا يتم إرسال المحتوى إلى خادم الموقع.
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="copyright">
+                © <span data-current-year></span>
+                أدوات واتساب العربية.
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/common.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <script>
+        "use strict";
+
+        const qrForm = document.getElementById("qrForm");
+        const qrTextInput = document.getElementById("qrText");
+        const qrSizeInput = document.getElementById("qrSize");
+        const qrCanvas = document.getElementById("qrCanvas");
+        const resultBox = document.getElementById("resultBox");
+        const resultText = document.getElementById("resultText");
+        const errorMessage = document.getElementById("errorMessage");
+
+        const sampleButton = document.getElementById("sampleButton");
+        const clearButton = document.getElementById("clearButton");
+        const downloadButton = document.getElementById("downloadButton");
+        const copyTextButton = document.getElementById("copyTextButton");
+
+        let currentValue = "";
+
+        function showError(message) {
+            errorMessage.textContent = message;
+            errorMessage.classList.add("is-visible");
+            resultBox.classList.remove("is-visible");
+        }
+
+        function clearError() {
+            errorMessage.textContent = "";
+            errorMessage.classList.remove("is-visible");
+        }
+
+        function generateQr(value, size) {
+            qrCanvas.innerHTML = "";
+
+            new QRCode(qrCanvas, {
+                text: value,
+                width: size,
+                height: size,
+                correctLevel: QRCode.CorrectLevel.M
+            });
+        }
+
+        qrForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+            clearError();
+
+            const value = qrTextInput.value.trim();
+            const size = Number(qrSizeInput.value);
+
+            if (!value) {
+                showError("يرجى إدخال رابط أو نص.");
+                qrTextInput.focus();
+                return;
+            }
+
+            if (value.length > 1500) {
+                showError("النص طويل جدًا. استخدم رابطًا أقصر أو نصًا مختصرًا.");
+                return;
+            }
+
+            if (typeof QRCode === "undefined") {
+                showError("تعذر تحميل مكتبة QR. تحقق من اتصال الإنترنت ثم حدّث الصفحة.");
+                return;
+            }
+
+            try {
+                currentValue = value;
+
+                generateQr(value, size);
+
+                resultText.textContent = value;
+                resultBox.classList.add("is-visible");
+            } catch (error) {
+                console.error(error);
+                showError("تعذر إنشاء رمز QR. تحقق من النص وحاول مرة أخرى.");
+            }
+        });
+
+        sampleButton.addEventListener("click", () => {
+            qrTextInput.value =
+                "https://wa.me/966551234567?text=" +
+                encodeURIComponent("السلام عليكم، أرغب في الاستفسار.");
+
+            qrTextInput.focus();
+        });
+
+        clearButton.addEventListener("click", () => {
+            qrForm.reset();
+            currentValue = "";
+            resultText.textContent = "";
+            qrCanvas.innerHTML = "";
+
+            resultBox.classList.remove("is-visible");
+            clearError();
+            qrTextInput.focus();
+        });
+
+        downloadButton.addEventListener("click", () => {
+            if (!currentValue) {
+                showError("أنشئ رمز QR أولًا.");
+                return;
+            }
+
+            const canvas = qrCanvas.querySelector("canvas");
+            const image = qrCanvas.querySelector("img");
+
+            let imageUrl = "";
+
+            if (canvas) {
+                imageUrl = canvas.toDataURL("image/png");
+            } else if (image) {
+                imageUrl = image.src;
+            }
+
+            if (!imageUrl) {
+                showError("تعذر العثور على صورة رمز QR.");
+                return;
+            }
+
+            const link = document.createElement("a");
+            link.href = imageUrl;
+            link.download = "qr-code.png";
+
+            document.body.appendChild(link);
+            link.click();
+            link.remove();
+        });
+
+        copyTextButton.addEventListener("click", async () => {
+            if (!currentValue) {
+                showError("لا يوجد رابط لنسخه.");
+                return;
+            }
+
+            const copied = await copyText(currentValue, copyTextButton);
+
+            if (!copied) {
+                showError("تعذر النسخ تلقائيًا.");
+            }
+        });
+    </script>
+</body>
+</html>
