@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>تنسيق رقم الجوال السعودي إلى صيغة 966</title>
+
+    <meta
+        name="description"
+        content="حوّل رقم الجوال السعودي من صيغ مثل 05 أو +966 أو 00966 إلى صيغة صحيحة مناسبة لواتساب."
+    >
+
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#128c7e">
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+    <style>
+        .tool-page {
+            padding: 54px 0;
+        }
+
+        .breadcrumb {
+            margin-bottom: 22px;
+            color: var(--text-muted);
+            font-size: 0.92rem;
+        }
+
+        .breadcrumb a {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .tool-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 340px;
+            align-items: start;
+            gap: 28px;
+        }
+
+        .tool-panel,
+        .side-panel {
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--surface);
+            box-shadow: var(--shadow);
+        }
+
+        .tool-panel {
+            padding: 28px;
+        }
+
+        .side-panel {
+            padding: 22px;
+        }
+
+        .tool-title {
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+
+        .tool-description {
+            margin-top: 0;
+            margin-bottom: 26px;
+            color: var(--text-muted);
+        }
+
+        .form-group {
+            display: grid;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-weight: 800;
+        }
+
+        .input {
+            width: 100%;
+            min-height: 48px;
+            padding: 10px 13px;
+            border: 1px solid var(--border);
+            border-radius: 11px;
+            background: #fff;
+            color: var(--text);
+            outline: none;
+        }
+
+        .input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(18, 140, 126, 0.12);
+        }
+
+        .form-help {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+        }
+
+        .result-box {
+            display: none;
+            margin-top: 26px;
+            padding: 20px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: #f8fbfa;
+        }
+
+        .result-box.is-visible {
+            display: block;
+        }
+
+        .result-grid {
+            display: grid;
+            gap: 14px;
+        }
+
+        .result-item {
+            display: grid;
+            gap: 7px;
+        }
+
+        .result-label {
+            font-weight: 800;
+        }
+
+        .result-value {
+            min-height: 46px;
+            padding: 11px;
+            border: 1px solid var(--border);
+            border-radius: 9px;
+            background: #fff;
+            direction: ltr;
+            text-align: left;
+            overflow-wrap: anywhere;
+        }
+
+        .result-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 16px;
+        }
+
+        .error-message {
+            display: none;
+            margin-top: 14px;
+            padding: 12px 14px;
+            border: 1px solid #f0b4b0;
+            border-radius: 10px;
+            background: #fff1f0;
+            color: var(--danger);
+            font-weight: 700;
+        }
+
+        .error-message.is-visible {
+            display: block;
+        }
+
+        .examples {
+            display: grid;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .example {
+            padding: 12px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: #fafcfc;
+            direction: ltr;
+            text-align: left;
+            font-family: Consolas, monospace;
+        }
+
+        .side-panel h2 {
+            margin-top: 0;
+            font-size: 1.15rem;
+        }
+
+        .tips-list {
+            margin: 0;
+            padding-right: 20px;
+            color: var(--text-muted);
+        }
+
+        .tips-list li + li {
+            margin-top: 10px;
+        }
+
+        .privacy-note {
+            margin-top: 20px;
+            padding: 14px;
+            border-radius: 10px;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 850px) {
+            .tool-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .tool-panel {
+                padding: 20px;
+            }
+
+            .result-actions {
+                display: grid;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-content">
+            <a class="logo" href="../index.html" aria-label="الصفحة الرئيسية">
+                <span class="logo-mark">و</span>
+                <span>أدوات واتساب العربية</span>
+            </a>
+
+            <button
+                class="menu-button"
+                type="button"
+                aria-label="فتح القائمة"
+                aria-expanded="false"
+                data-menu-button
+            >
+                القائمة
+            </button>
+
+            <nav class="main-nav" aria-label="التنقل الرئيسي" data-main-nav>
+                <a href="../index.html#tools">الأدوات</a>
+                <a href="../index.html#guides">الشروحات</a>
+                <a href="../about.html">عن الموقع</a>
+                <a href="../privacy.html">الخصوصية</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="tool-page">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="../index.html">الرئيسية</a>
+                /
+                منسق الرقم السعودي
+            </div>
+
+            <div class="tool-layout">
+                <section class="tool-panel">
+                    <h1 class="tool-title">منسق رقم الجوال السعودي</h1>
+
+                    <p class="tool-description">
+                        أدخل رقمًا سعوديًا بأي صيغة شائعة، وسنحوّله إلى صيغ صحيحة قابلة للنسخ والاستخدام.
+                    </p>
+
+                    <form id="phoneForm" novalidate>
+                        <div class="form-group">
+                            <label for="phone">رقم الجوال السعودي</label>
+
+                            <input
+                                id="phone"
+                                class="input"
+                                type="text"
+                                inputmode="tel"
+                                autocomplete="tel"
+                                placeholder="مثال: 0551234567"
+                                required
+                            >
+
+                            <span class="form-help">
+                                يقبل أرقامًا مثل 0551234567 أو +966551234567 أو 00966551234567.
+                            </span>
+                        </div>
+
+                        <button class="button button-primary" type="submit">
+                            تنسيق الرقم
+                        </button>
+
+                        <div
+                            id="errorMessage"
+                            class="error-message"
+                            role="alert"
+                        ></div>
+                    </form>
+
+                    <div id="resultBox" class="result-box">
+                        <div class="result-grid">
+                            <div class="result-item">
+                                <span class="result-label">الصيغة الدولية لواتساب</span>
+                                <div id="internationalResult" class="result-value"></div>
+                            </div>
+
+                            <div class="result-item">
+                                <span class="result-label">الصيغة المحلية</span>
+                                <div id="localResult" class="result-value"></div>
+                            </div>
+
+                            <div class="result-item">
+                                <span class="result-label">الصيغة الدولية مع +</span>
+                                <div id="plusResult" class="result-value"></div>
+                            </div>
+
+                            <div class="result-item">
+                                <span class="result-label">رابط واتساب</span>
+                                <div id="whatsappResult" class="result-value"></div>
+                            </div>
+                        </div>
+
+                        <div class="result-actions">
+                            <button
+                                id="copyInternational"
+                                class="button button-secondary"
+                                type="button"
+                            >
+                                نسخ صيغة واتساب
+                            </button>
+
+                            <button
+                                id="copyLocal"
+                                class="button button-secondary"
+                                type="button"
+                            >
+                                نسخ الرقم المحلي
+                            </button>
+
+                            <a
+                                id="openWhatsapp"
+                                class="button button-primary"
+                                href="#"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                فتح واتساب
+                            </a>
+
+                            <button
+                                id="clearButton"
+                                class="button button-secondary"
+                                type="button"
+                            >
+                                مسح
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <aside class="side-panel">
+                    <h2>أمثلة مقبولة</h2>
+
+                    <div class="examples">
+                        <div class="example">0551234567</div>
+                        <div class="example">551234567</div>
+                        <div class="example">+966551234567</div>
+                        <div class="example">00966551234567</div>
+                        <div class="example">٠٥٥١٢٣٤٥٦٧</div>
+                    </div>
+
+                    <h2 style="margin-top: 24px;">ملاحظات</h2>
+
+                    <ul class="tips-list">
+                        <li>الأداة مخصصة لأرقام الجوال السعودية فقط.</li>
+                        <li>يجب أن يبدأ رقم الجوال بعد رمز الدولة بالرقم 5.</li>
+                        <li>لا يتم حفظ الرقم أو إرساله لأي خادم.</li>
+                    </ul>
+
+                    <div class="privacy-note">
+                        تتم المعالجة بالكامل داخل متصفحك.
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="copyright">
+                © <span data-current-year></span>
+                أدوات واتساب العربية.
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/common.js"></script>
+
+    <script>
+        "use strict";
+
+        const phoneForm = document.getElementById("phoneForm");
+        const phoneInput = document.getElementById("phone");
+        const resultBox = document.getElementById("resultBox");
+        const errorMessage = document.getElementById("errorMessage");
+
+        const internationalResult = document.getElementById("internationalResult");
+        const localResult = document.getElementById("localResult");
+        const plusResult = document.getElementById("plusResult");
+        const whatsappResult = document.getElementById("whatsappResult");
+
+        const copyInternationalButton = document.getElementById("copyInternational");
+        const copyLocalButton = document.getElementById("copyLocal");
+        const openWhatsappButton = document.getElementById("openWhatsapp");
+        const clearButton = document.getElementById("clearButton");
+
+        let currentInternational = "";
+        let currentLocal = "";
+        let currentWhatsappUrl = "";
+
+        function showError(message) {
+            errorMessage.textContent = message;
+            errorMessage.classList.add("is-visible");
+            resultBox.classList.remove("is-visible");
+        }
+
+        function clearError() {
+            errorMessage.textContent = "";
+            errorMessage.classList.remove("is-visible");
+        }
+
+        function normalizeSaudiMobile(rawPhone) {
+            let phone = sanitizePhoneCharacters(rawPhone);
+
+            phone = phone.replace(/^\+/, "");
+            phone = phone.replace(/^00/, "");
+            phone = phone.replace(/\D/g, "");
+
+            if (!phone) {
+                return {
+                    valid: false,
+                    message: "يرجى إدخال رقم الجوال."
+                };
+            }
+
+            if (phone.startsWith("966")) {
+                phone = phone.slice(3);
+            }
+
+            if (phone.startsWith("0")) {
+                phone = phone.slice(1);
+            }
+
+            if (!/^5\d{8}$/.test(phone)) {
+                return {
+                    valid: false,
+                    message: "الرقم غير صحيح. يجب أن يتكون رقم الجوال السعودي من 9 أرقام ويبدأ بـ5."
+                };
+            }
+
+            return {
+                valid: true,
+                national: phone,
+                local: `0${phone}`,
+                international: `966${phone}`,
+                plus: `+966${phone}`,
+                whatsappUrl: `https://wa.me/966${phone}`
+            };
+        }
+
+        phoneForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+            clearError();
+
+            const normalized = normalizeSaudiMobile(phoneInput.value);
+
+            if (!normalized.valid) {
+                showError(normalized.message);
+                phoneInput.focus();
+                return;
+            }
+
+            currentInternational = normalized.international;
+            currentLocal = normalized.local;
+            currentWhatsappUrl = normalized.whatsappUrl;
+
+            internationalResult.textContent = normalized.international;
+            localResult.textContent = normalized.local;
+            plusResult.textContent = normalized.plus;
+            whatsappResult.textContent = normalized.whatsappUrl;
+
+            openWhatsappButton.href = normalized.whatsappUrl;
+            resultBox.classList.add("is-visible");
+        });
+
+        copyInternationalButton.addEventListener("click", async () => {
+            if (!currentInternational) {
+                return;
+            }
+
+            const copied = await copyText(
+                currentInternational,
+                copyInternationalButton
+            );
+
+            if (!copied) {
+                showError("تعذر النسخ تلقائيًا. انسخ الرقم يدويًا.");
+            }
+        });
+
+        copyLocalButton.addEventListener("click", async () => {
+            if (!currentLocal) {
+                return;
+            }
+
+            const copied = await copyText(
+                currentLocal,
+                copyLocalButton
+            );
+
+            if (!copied) {
+                showError("تعذر النسخ تلقائيًا. انسخ الرقم يدويًا.");
+            }
+        });
+
+        clearButton.addEventListener("click", () => {
+            phoneForm.reset();
+
+            currentInternational = "";
+            currentLocal = "";
+            currentWhatsappUrl = "";
+
+            internationalResult.textContent = "";
+            localResult.textContent = "";
+            plusResult.textContent = "";
+            whatsappResult.textContent = "";
+
+            openWhatsappButton.href = "#";
+            resultBox.classList.remove("is-visible");
+            clearError();
+            phoneInput.focus();
+        });
+    </script>
+</body>
+</html>
