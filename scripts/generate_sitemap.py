@@ -8,8 +8,7 @@ from xml.dom import minidom
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
-BASE_URL = "https://example.pages.dev"
-
+BASE_URL = "https://ramfqconnect.shop"
 EXCLUDED_FILES = {
     "404.html",
 }
