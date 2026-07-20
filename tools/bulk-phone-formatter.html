@@ -1,0 +1,727 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>تنسيق قائمة أرقام سعودية دفعة واحدة</title>
+
+    <meta
+        name="description"
+        content="نظّف وحوّل قائمة أرقام جوال سعودية إلى صيغة 966 المناسبة لواتساب، ثم انسخ النتائج أو نزّلها CSV وTXT."
+    >
+
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#128c7e">
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+    <style>
+        .tool-page {
+            padding: 54px 0;
+        }
+
+        .breadcrumb {
+            margin-bottom: 22px;
+            color: var(--text-muted);
+            font-size: 0.92rem;
+        }
+
+        .breadcrumb a {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .tool-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 340px;
+            align-items: start;
+            gap: 28px;
+        }
+
+        .tool-panel,
+        .side-panel {
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--surface);
+            box-shadow: var(--shadow);
+        }
+
+        .tool-panel {
+            padding: 28px;
+        }
+
+        .side-panel {
+            padding: 22px;
+        }
+
+        .tool-title {
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+
+        .tool-description {
+            margin-top: 0;
+            margin-bottom: 26px;
+            color: var(--text-muted);
+        }
+
+        .form-group {
+            display: grid;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-weight: 800;
+        }
+
+        .textarea {
+            width: 100%;
+            min-height: 240px;
+            padding: 13px;
+            border: 1px solid var(--border);
+            border-radius: 11px;
+            background: #fff;
+            color: var(--text);
+            outline: none;
+            resize: vertical;
+            direction: ltr;
+            text-align: left;
+        }
+
+        .textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(18, 140, 126, 0.12);
+        }
+
+        .form-help {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .summary {
+            display: none;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .summary.is-visible {
+            display: grid;
+        }
+
+        .summary-card {
+            padding: 16px;
+            border: 1px solid var(--border);
+            border-radius: 11px;
+            background: #f8fbfa;
+            text-align: center;
+        }
+
+        .summary-number {
+            display: block;
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: var(--primary-dark);
+        }
+
+        .summary-label {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+        }
+
+        .results-section {
+            display: none;
+            margin-top: 26px;
+        }
+
+        .results-section.is-visible {
+            display: block;
+        }
+
+        .results-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 14px;
+        }
+
+        .results-header h2 {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+        }
+
+        table {
+            width: 100%;
+            min-width: 680px;
+            border-collapse: collapse;
+            background: #fff;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            border-bottom: 1px solid var(--border);
+            text-align: right;
+        }
+
+        th {
+            background: #f3f8f6;
+            color: var(--primary-dark);
+        }
+
+        td.number-cell {
+            direction: ltr;
+            text-align: left;
+            font-family: Consolas, monospace;
+        }
+
+        tr:last-child td {
+            border-bottom: 0;
+        }
+
+        .status-valid {
+            color: var(--primary-dark);
+            font-weight: 800;
+        }
+
+        .status-invalid {
+            color: var(--danger);
+            font-weight: 800;
+        }
+
+        .error-message {
+            display: none;
+            margin-top: 14px;
+            padding: 12px 14px;
+            border: 1px solid #f0b4b0;
+            border-radius: 10px;
+            background: #fff1f0;
+            color: var(--danger);
+            font-weight: 700;
+        }
+
+        .error-message.is-visible {
+            display: block;
+        }
+
+        .side-panel h2 {
+            margin-top: 0;
+            font-size: 1.15rem;
+        }
+
+        .tips-list {
+            margin: 0;
+            padding-right: 20px;
+            color: var(--text-muted);
+        }
+
+        .tips-list li + li {
+            margin-top: 10px;
+        }
+
+        .privacy-note {
+            margin-top: 20px;
+            padding: 14px;
+            border-radius: 10px;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 850px) {
+            .tool-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .tool-panel {
+                padding: 20px;
+            }
+
+            .actions,
+            .results-header {
+                display: grid;
+            }
+
+            .summary {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-content">
+            <a class="logo" href="../index.html" aria-label="الصفحة الرئيسية">
+                <span class="logo-mark">و</span>
+                <span>أدوات واتساب العربية</span>
+            </a>
+
+            <button
+                class="menu-button"
+                type="button"
+                aria-label="فتح القائمة"
+                aria-expanded="false"
+                data-menu-button
+            >
+                القائمة
+            </button>
+
+            <nav class="main-nav" aria-label="التنقل الرئيسي" data-main-nav>
+                <a href="../index.html#tools">الأدوات</a>
+                <a href="../index.html#guides">الشروحات</a>
+                <a href="../about.html">عن الموقع</a>
+                <a href="../privacy.html">الخصوصية</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="tool-page">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="../index.html">الرئيسية</a>
+                /
+                تنسيق قائمة أرقام
+            </div>
+
+            <div class="tool-layout">
+                <section class="tool-panel">
+                    <h1 class="tool-title">تنسيق قائمة أرقام سعودية</h1>
+
+                    <p class="tool-description">
+                        الصق الأرقام، بحيث يكون كل رقم في سطر مستقل، ثم حوّلها إلى صيغة واتساب الصحيحة.
+                    </p>
+
+                    <form id="bulkForm" novalidate>
+                        <div class="form-group">
+                            <label for="phoneList">قائمة الأرقام</label>
+
+                            <textarea
+                                id="phoneList"
+                                class="textarea"
+                                placeholder="0551234567&#10;+966551234568&#10;٠٥٥١٢٣٤٥٦٩"
+                                required
+                            ></textarea>
+
+                            <span class="form-help">
+                                يمكنك الفصل بين الأرقام باستخدام سطر جديد أو فاصلة أو فاصلة منقوطة.
+                            </span>
+                        </div>
+
+                        <div class="actions">
+                            <button class="button button-primary" type="submit">
+                                تنسيق الأرقام
+                            </button>
+
+                            <button
+                                id="sampleButton"
+                                class="button button-secondary"
+                                type="button"
+                            >
+                                إضافة مثال
+                            </button>
+
+                            <button
+                                id="clearButton"
+                                class="button button-secondary"
+                                type="button"
+                            >
+                                مسح
+                            </button>
+                        </div>
+
+                        <div
+                            id="errorMessage"
+                            class="error-message"
+                            role="alert"
+                        ></div>
+                    </form>
+
+                    <div id="summary" class="summary">
+                        <div class="summary-card">
+                            <span id="totalCount" class="summary-number">0</span>
+                            <span class="summary-label">إجمالي المدخلات</span>
+                        </div>
+
+                        <div class="summary-card">
+                            <span id="validCount" class="summary-number">0</span>
+                            <span class="summary-label">أرقام صحيحة</span>
+                        </div>
+
+                        <div class="summary-card">
+                            <span id="invalidCount" class="summary-number">0</span>
+                            <span class="summary-label">أرقام غير صحيحة</span>
+                        </div>
+                    </div>
+
+                    <section id="resultsSection" class="results-section">
+                        <div class="results-header">
+                            <h2>النتائج</h2>
+
+                            <div class="actions">
+                                <button
+                                    id="copyValidButton"
+                                    class="button button-secondary"
+                                    type="button"
+                                >
+                                    نسخ الصحيحة
+                                </button>
+
+                                <button
+                                    id="downloadTxtButton"
+                                    class="button button-secondary"
+                                    type="button"
+                                >
+                                    تنزيل TXT
+                                </button>
+
+                                <button
+                                    id="downloadCsvButton"
+                                    class="button button-primary"
+                                    type="button"
+                                >
+                                    تنزيل CSV
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="table-wrapper">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>المدخل</th>
+                                        <th>النتيجة</th>
+                                        <th>الحالة</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="resultsBody"></tbody>
+                            </table>
+                        </div>
+                    </section>
+                </section>
+
+                <aside class="side-panel">
+                    <h2>ما الذي تفعله الأداة؟</h2>
+
+                    <ul class="tips-list">
+                        <li>تحوّل الأرقام العربية إلى إنجليزية.</li>
+                        <li>تزيل المسافات والشرطات والرموز.</li>
+                        <li>تحوّل 05 إلى 9665.</li>
+                        <li>تتعرف على +966 و00966.</li>
+                        <li>تعرض الأرقام غير الصحيحة دون حذفها بصمت.</li>
+                    </ul>
+
+                    <div class="privacy-note">
+                        تتم معالجة القائمة داخل متصفحك فقط، ولا يتم رفعها إلى أي خادم.
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="copyright">
+                © <span data-current-year></span>
+                أدوات واتساب العربية.
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/common.js"></script>
+
+    <script>
+        "use strict";
+
+        const bulkForm = document.getElementById("bulkForm");
+        const phoneListInput = document.getElementById("phoneList");
+        const sampleButton = document.getElementById("sampleButton");
+        const clearButton = document.getElementById("clearButton");
+        const errorMessage = document.getElementById("errorMessage");
+
+        const summary = document.getElementById("summary");
+        const totalCount = document.getElementById("totalCount");
+        const validCount = document.getElementById("validCount");
+        const invalidCount = document.getElementById("invalidCount");
+
+        const resultsSection = document.getElementById("resultsSection");
+        const resultsBody = document.getElementById("resultsBody");
+
+        const copyValidButton = document.getElementById("copyValidButton");
+        const downloadTxtButton = document.getElementById("downloadTxtButton");
+        const downloadCsvButton = document.getElementById("downloadCsvButton");
+
+        let currentResults = [];
+
+        function showError(message) {
+            errorMessage.textContent = message;
+            errorMessage.classList.add("is-visible");
+        }
+
+        function clearError() {
+            errorMessage.textContent = "";
+            errorMessage.classList.remove("is-visible");
+        }
+
+        function splitInputs(rawText) {
+            return rawText
+                .split(/[\n,;،]+/)
+                .map((item) => item.trim())
+                .filter(Boolean);
+        }
+
+        function normalizeSaudiMobile(rawPhone) {
+            let phone = sanitizePhoneCharacters(rawPhone);
+
+            phone = phone.replace(/^\+/, "");
+            phone = phone.replace(/^00/, "");
+            phone = phone.replace(/\D/g, "");
+
+            if (!phone) {
+                return {
+                    valid: false,
+                    normalized: "",
+                    message: "قيمة فارغة"
+                };
+            }
+
+            if (phone.startsWith("966")) {
+                phone = phone.slice(3);
+            }
+
+            if (phone.startsWith("0")) {
+                phone = phone.slice(1);
+            }
+
+            if (!/^5\d{8}$/.test(phone)) {
+                return {
+                    valid: false,
+                    normalized: "",
+                    message: "رقم سعودي غير صحيح"
+                };
+            }
+
+            return {
+                valid: true,
+                normalized: `966${phone}`,
+                message: "صحيح"
+            };
+        }
+
+        function renderResults(results) {
+            resultsBody.innerHTML = "";
+
+            results.forEach((result, index) => {
+                const row = document.createElement("tr");
+
+                const indexCell = document.createElement("td");
+                indexCell.textContent = String(index + 1);
+
+                const originalCell = document.createElement("td");
+                originalCell.className = "number-cell";
+                originalCell.textContent = result.original;
+
+                const normalizedCell = document.createElement("td");
+                normalizedCell.className = "number-cell";
+                normalizedCell.textContent = result.normalized || "—";
+
+                const statusCell = document.createElement("td");
+                statusCell.textContent = result.message;
+                statusCell.className = result.valid
+                    ? "status-valid"
+                    : "status-invalid";
+
+                row.append(
+                    indexCell,
+                    originalCell,
+                    normalizedCell,
+                    statusCell
+                );
+
+                resultsBody.appendChild(row);
+            });
+        }
+
+        function updateSummary(results) {
+            const validResults = results.filter((result) => result.valid);
+            const invalidResults = results.filter((result) => !result.valid);
+
+            totalCount.textContent = String(results.length);
+            validCount.textContent = String(validResults.length);
+            invalidCount.textContent = String(invalidResults.length);
+
+            summary.classList.add("is-visible");
+            resultsSection.classList.add("is-visible");
+        }
+
+        function getValidNumbers() {
+            return currentResults
+                .filter((result) => result.valid)
+                .map((result) => result.normalized);
+        }
+
+        function downloadFile(filename, content, mimeType) {
+            const blob = new Blob([content], {
+                type: mimeType
+            });
+
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement("a");
+
+            link.href = url;
+            link.download = filename;
+
+            document.body.appendChild(link);
+            link.click();
+            link.remove();
+
+            URL.revokeObjectURL(url);
+        }
+
+        function escapeCsv(value) {
+            const stringValue = String(value ?? "");
+
+            if (
+                stringValue.includes(",") ||
+                stringValue.includes("\"") ||
+                stringValue.includes("\n")
+            ) {
+                return `"${stringValue.replace(/"/g, "\"\"")}"`;
+            }
+
+            return stringValue;
+        }
+
+        bulkForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+            clearError();
+
+            const inputs = splitInputs(phoneListInput.value);
+
+            if (inputs.length === 0) {
+                showError("يرجى إدخال رقم واحد على الأقل.");
+                phoneListInput.focus();
+                return;
+            }
+
+            currentResults = inputs.map((original) => {
+                const result = normalizeSaudiMobile(original);
+
+                return {
+                    original,
+                    ...result
+                };
+            });
+
+            renderResults(currentResults);
+            updateSummary(currentResults);
+        });
+
+        sampleButton.addEventListener("click", () => {
+            phoneListInput.value = [
+                "0551234567",
+                "+966551234568",
+                "00966551234569",
+                "٠٥٥١٢٣٤٥٧٠",
+                "12345"
+            ].join("\n");
+
+            phoneListInput.focus();
+        });
+
+        clearButton.addEventListener("click", () => {
+            bulkForm.reset();
+            currentResults = [];
+            resultsBody.innerHTML = "";
+
+            summary.classList.remove("is-visible");
+            resultsSection.classList.remove("is-visible");
+
+            totalCount.textContent = "0";
+            validCount.textContent = "0";
+            invalidCount.textContent = "0";
+
+            clearError();
+            phoneListInput.focus();
+        });
+
+        copyValidButton.addEventListener("click", async () => {
+            const validNumbers = getValidNumbers();
+
+            if (validNumbers.length === 0) {
+                showError("لا توجد أرقام صحيحة لنسخها.");
+                return;
+            }
+
+            const copied = await copyText(
+                validNumbers.join("\n"),
+                copyValidButton
+            );
+
+            if (!copied) {
+                showError("تعذر النسخ تلقائيًا.");
+            }
+        });
+
+        downloadTxtButton.addEventListener("click", () => {
+            const validNumbers = getValidNumbers();
+
+            if (validNumbers.length === 0) {
+                showError("لا توجد أرقام صحيحة لتنزيلها.");
+                return;
+            }
+
+            downloadFile(
+                "saudi-phone-numbers.txt",
+                validNumbers.join("\n"),
+                "text/plain;charset=utf-8"
+            );
+        });
+
+        downloadCsvButton.addEventListener("click", () => {
+            if (currentResults.length === 0) {
+                showError("لا توجد نتائج لتنزيلها.");
+                return;
+            }
+
+            const rows = [
+                ["original", "normalized", "status"],
+                ...currentResults.map((result) => [
+                    result.original,
+                    result.normalized,
+                    result.valid ? "valid" : "invalid"
+                ])
+            ];
+
+            const csvContent = "\uFEFF" + rows
+                .map((row) => row.map(escapeCsv).join(","))
+                .join("\n");
+
+            downloadFile(
+                "saudi-phone-results.csv",
+                csvContent,
+                "text/csv;charset=utf-8"
+            );
+        });
+    </script>
+</body>
+</html>
