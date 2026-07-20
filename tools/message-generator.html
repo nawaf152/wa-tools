@@ -1,0 +1,879 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>مولد رسائل واتساب جاهزة للأعمال والعملاء</title>
+
+    <meta
+        name="description"
+        content="أنشئ رسائل واتساب عربية جاهزة لتأكيد الطلبات والمواعيد والدفع ومتابعة عروض الأسعار."
+    >
+
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#128c7e">
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+    <style>
+        .tool-page {
+            padding: 54px 0;
+        }
+
+        .breadcrumb {
+            margin-bottom: 22px;
+            color: var(--text-muted);
+            font-size: 0.92rem;
+        }
+
+        .breadcrumb a {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .tool-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 340px;
+            align-items: start;
+            gap: 28px;
+        }
+
+        .tool-panel,
+        .side-panel {
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--surface);
+            box-shadow: var(--shadow);
+        }
+
+        .tool-panel {
+            padding: 28px;
+        }
+
+        .side-panel {
+            padding: 22px;
+        }
+
+        .tool-title {
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+
+        .tool-description {
+            margin-top: 0;
+            margin-bottom: 26px;
+            color: var(--text-muted);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .form-group {
+            display: grid;
+            gap: 8px;
+            margin-bottom: 18px;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            font-weight: 800;
+        }
+
+        .input,
+        .select,
+        .textarea {
+            width: 100%;
+            border: 1px solid var(--border);
+            border-radius: 11px;
+            background: #fff;
+            color: var(--text);
+            outline: none;
+        }
+
+        .input,
+        .select {
+            min-height: 48px;
+            padding: 10px 13px;
+        }
+
+        .textarea {
+            min-height: 145px;
+            padding: 13px;
+            resize: vertical;
+        }
+
+        .input:focus,
+        .select:focus,
+        .textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(18, 140, 126, 0.12);
+        }
+
+        .form-help {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .result-box {
+            display: none;
+            margin-top: 26px;
+            padding: 22px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: #f8fbfa;
+        }
+
+        .result-box.is-visible {
+            display: block;
+        }
+
+        .result-box h2 {
+            margin-top: 0;
+            font-size: 1.2rem;
+        }
+
+        .generated-message {
+            min-height: 160px;
+            padding: 16px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: #fff;
+            white-space: pre-wrap;
+            overflow-wrap: anywhere;
+        }
+
+        .result-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 16px;
+        }
+
+        .error-message {
+            display: none;
+            margin-top: 14px;
+            padding: 12px 14px;
+            border: 1px solid #f0b4b0;
+            border-radius: 10px;
+            background: #fff1f0;
+            color: var(--danger);
+            font-weight: 700;
+        }
+
+        .error-message.is-visible {
+            display: block;
+        }
+
+        .template-preview {
+            margin-top: 18px;
+            padding: 14px;
+            border: 1px dashed var(--border);
+            border-radius: 10px;
+            background: #fafcfc;
+            color: var(--text-muted);
+            white-space: pre-wrap;
+        }
+
+        .side-panel h2 {
+            margin-top: 0;
+            font-size: 1.15rem;
+        }
+
+        .tips-list {
+            margin: 0;
+            padding-right: 20px;
+            color: var(--text-muted);
+        }
+
+        .tips-list li + li {
+            margin-top: 10px;
+        }
+
+        .privacy-note {
+            margin-top: 20px;
+            padding: 14px;
+            border-radius: 10px;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 850px) {
+            .tool-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 620px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tool-panel {
+                padding: 20px;
+            }
+
+            .actions,
+            .result-actions {
+                display: grid;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-content">
+            <a class="logo" href="../index.html" aria-label="الصفحة الرئيسية">
+                <span class="logo-mark">و</span>
+                <span>أدوات واتساب العربية</span>
+            </a>
+
+            <button
+                class="menu-button"
+                type="button"
+                aria-label="فتح القائمة"
+                aria-expanded="false"
+                data-menu-button
+            >
+                القائمة
+            </button>
+
+            <nav class="main-nav" aria-label="التنقل الرئيسي" data-main-nav>
+                <a href="../index.html#tools">الأدوات</a>
+                <a href="../index.html#guides">الشروحات</a>
+                <a href="../about.html">عن الموقع</a>
+                <a href="../privacy.html">الخصوصية</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="tool-page">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="../index.html">الرئيسية</a>
+                /
+                مولد رسائل الأعمال
+            </div>
+
+            <div class="tool-layout">
+                <section class="tool-panel">
+                    <h1 class="tool-title">مولد رسائل واتساب للأعمال</h1>
+
+                    <p class="tool-description">
+                        اختر نوع الرسالة، وأدخل بيانات العميل، ثم انسخ رسالة عربية جاهزة أو افتحها مباشرة في واتساب.
+                    </p>
+
+                    <form id="messageForm" novalidate>
+                        <div class="form-grid">
+                            <div class="form-group full-width">
+                                <label for="templateType">نوع الرسالة</label>
+
+                                <select id="templateType" class="select">
+                                    <option value="order-confirmation">تأكيد استلام الطلب</option>
+                                    <option value="order-ready">الطلب جاهز للاستلام</option>
+                                    <option value="appointment-confirmation">تأكيد الموعد</option>
+                                    <option value="appointment-reminder">تذكير بالموعد</option>
+                                    <option value="payment-reminder">تذكير بالدفع</option>
+                                    <option value="quote-followup">متابعة عرض السعر</option>
+                                    <option value="location-request">طلب الموقع</option>
+                                    <option value="review-request">طلب تقييم الخدمة</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="customerName">اسم العميل</label>
+
+                                <input
+                                    id="customerName"
+                                    class="input"
+                                    type="text"
+                                    placeholder="مثال: أحمد"
+                                >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="businessName">اسم النشاط</label>
+
+                                <input
+                                    id="businessName"
+                                    class="input"
+                                    type="text"
+                                    placeholder="مثال: متجر النخبة"
+                                >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="orderNumber">رقم الطلب أو العرض</label>
+
+                                <input
+                                    id="orderNumber"
+                                    class="input"
+                                    type="text"
+                                    placeholder="مثال: 1042"
+                                >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="amount">المبلغ</label>
+
+                                <input
+                                    id="amount"
+                                    class="input"
+                                    type="text"
+                                    inputmode="decimal"
+                                    placeholder="مثال: 250 ريال"
+                                >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="dateValue">التاريخ</label>
+
+                                <input
+                                    id="dateValue"
+                                    class="input"
+                                    type="date"
+                                >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="timeValue">الوقت</label>
+
+                                <input
+                                    id="timeValue"
+                                    class="input"
+                                    type="time"
+                                >
+                            </div>
+
+                            <div class="form-group full-width">
+                                <label for="extraDetails">تفاصيل إضافية</label>
+
+                                <textarea
+                                    id="extraDetails"
+                                    class="textarea"
+                                    placeholder="مثال: الاستلام من الفرع الرئيسي، أو يرجى إحضار رقم الطلب."
+                                ></textarea>
+
+                                <span class="form-help">
+                                    جميع الحقول اختيارية. ستظهر في الرسالة فقط عند تعبئتها.
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="actions">
+                            <button class="button button-primary" type="submit">
+                                إنشاء الرسالة
+                            </button>
+
+                            <button
+                                id="sampleButton"
+                                class="button button-secondary"
+                                type="button"
+                            >
+                                تعبئة مثال
+                            </button>
+
+                            <button
+                                id="clearButton"
+                                class="button button-secondary"
+                                type="button"
+                            >
+                                مسح
+                            </button>
+                        </div>
+
+                        <div
+                            id="errorMessage"
+                            class="error-message"
+                            role="alert"
+                        ></div>
+                    </form>
+
+                    <div class="template-preview">
+                        <strong>معاينة القالب:</strong>
+                        <div id="templatePreview"></div>
+                    </div>
+
+                    <div id="resultBox" class="result-box">
+                        <h2>الرسالة الناتجة</h2>
+
+                        <div
+                            id="generatedMessage"
+                            class="generated-message"
+                        ></div>
+
+                        <div class="result-actions">
+                            <button
+                                id="copyButton"
+                                class="button button-primary"
+                                type="button"
+                            >
+                                نسخ الرسالة
+                            </button>
+
+                            <button
+                                id="openWhatsappButton"
+                                class="button button-secondary"
+                                type="button"
+                            >
+                                فتح في واتساب
+                            </button>
+
+                            <button
+                                id="editButton"
+                                class="button button-secondary"
+                                type="button"
+                            >
+                                تعديل الرسالة
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <aside class="side-panel">
+                    <h2>نصائح للرسائل</h2>
+
+                    <ul class="tips-list">
+                        <li>اجعل الرسالة قصيرة وواضحة.</li>
+                        <li>اذكر اسم النشاط حتى يعرف العميل المرسل.</li>
+                        <li>لا تستخدم صيغة حادة عند تذكير العميل بالدفع.</li>
+                        <li>راجع المبلغ والتاريخ قبل الإرسال.</li>
+                        <li>لا ترسل رسائل تسويقية دون موافقة العميل.</li>
+                    </ul>
+
+                    <div class="privacy-note">
+                        يتم إنشاء الرسالة داخل متصفحك، ولا يتم حفظ محتواها.
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="copyright">
+                © <span data-current-year></span>
+                أدوات واتساب العربية.
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/common.js"></script>
+
+    <script>
+        "use strict";
+
+        const templates = {
+            "order-confirmation": {
+                preview:
+                    "السلام عليكم [اسم العميل]، تم استلام طلبك رقم [رقم الطلب] بنجاح لدى [اسم النشاط].",
+                build(data) {
+                    return [
+                        greeting(data.customerName),
+                        sentence(
+                            "تم استلام طلبك",
+                            data.orderNumber ? `رقم ${data.orderNumber}` : "",
+                            "بنجاح",
+                            data.businessName ? `لدى ${data.businessName}` : ""
+                        ),
+                        data.amount ? `قيمة الطلب: ${data.amount}.` : "",
+                        data.extraDetails,
+                        closing(data.businessName)
+                    ];
+                }
+            },
+
+            "order-ready": {
+                preview:
+                    "السلام عليكم [اسم العميل]، طلبك رقم [رقم الطلب] جاهز للاستلام.",
+                build(data) {
+                    return [
+                        greeting(data.customerName),
+                        sentence(
+                            "طلبك",
+                            data.orderNumber ? `رقم ${data.orderNumber}` : "",
+                            "جاهز للاستلام"
+                        ),
+                        dateTimeLine(data),
+                        data.amount ? `المبلغ المتبقي: ${data.amount}.` : "",
+                        data.extraDetails,
+                        closing(data.businessName)
+                    ];
+                }
+            },
+
+            "appointment-confirmation": {
+                preview:
+                    "تم تأكيد موعدك بتاريخ [التاريخ] الساعة [الوقت].",
+                build(data) {
+                    return [
+                        greeting(data.customerName),
+                        sentence(
+                            "تم تأكيد موعدك",
+                            data.businessName ? `لدى ${data.businessName}` : ""
+                        ),
+                        dateTimeLine(data),
+                        data.extraDetails,
+                        "يرجى إبلاغنا مسبقًا عند الحاجة إلى تغيير الموعد."
+                    ];
+                }
+            },
+
+            "appointment-reminder": {
+                preview:
+                    "نذكّرك بموعدك بتاريخ [التاريخ] الساعة [الوقت].",
+                build(data) {
+                    return [
+                        greeting(data.customerName),
+                        sentence(
+                            "نذكّرك بموعدك",
+                            data.businessName ? `لدى ${data.businessName}` : ""
+                        ),
+                        dateTimeLine(data),
+                        data.extraDetails,
+                        "نرجو تأكيد الحضور أو إبلاغنا عند الرغبة في تعديل الموعد."
+                    ];
+                }
+            },
+
+            "payment-reminder": {
+                preview:
+                    "تذكير لطيف بوجود مبلغ مستحق قدره [المبلغ] للطلب رقم [رقم الطلب].",
+                build(data) {
+                    return [
+                        greeting(data.customerName),
+                        sentence(
+                            "نود تذكيرك بلطف بوجود مبلغ مستحق",
+                            data.amount ? `قدره ${data.amount}` : "",
+                            data.orderNumber ? `للطلب رقم ${data.orderNumber}` : ""
+                        ),
+                        data.dateValue
+                            ? `تاريخ الاستحقاق: ${formatDate(data.dateValue)}.`
+                            : "",
+                        data.extraDetails,
+                        "نقدّر تعاونك، ويمكنك تجاهل الرسالة إذا تم السداد بالفعل.",
+                        closing(data.businessName)
+                    ];
+                }
+            },
+
+            "quote-followup": {
+                preview:
+                    "نتابع معك بخصوص عرض السعر رقم [رقم العرض].",
+                build(data) {
+                    return [
+                        greeting(data.customerName),
+                        sentence(
+                            "نتابع معك بخصوص عرض السعر",
+                            data.orderNumber ? `رقم ${data.orderNumber}` : "",
+                            data.businessName ? `المقدم من ${data.businessName}` : ""
+                        ),
+                        data.amount ? `قيمة العرض: ${data.amount}.` : "",
+                        data.extraDetails,
+                        "يسعدنا الإجابة عن أي استفسار أو تعديل العرض بما يناسب احتياجك."
+                    ];
+                }
+            },
+
+            "location-request": {
+                preview:
+                    "فضلاً أرسل موقعك لتأكيد الطلب أو الزيارة.",
+                build(data) {
+                    return [
+                        greeting(data.customerName),
+                        sentence(
+                            "فضلاً أرسل موقعك عبر واتساب",
+                            data.orderNumber ? `لاستكمال الطلب رقم ${data.orderNumber}` : "",
+                            data.businessName ? `مع ${data.businessName}` : ""
+                        ),
+                        dateTimeLine(data),
+                        data.extraDetails,
+                        "شكرًا لتعاونك."
+                    ];
+                }
+            },
+
+            "review-request": {
+                preview:
+                    "يسعدنا تقييمك لتجربتك معنا.",
+                build(data) {
+                    return [
+                        greeting(data.customerName),
+                        sentence(
+                            "نشكر لك التعامل معنا",
+                            data.businessName ? `في ${data.businessName}` : ""
+                        ),
+                        "يسعدنا معرفة رأيك وتقييم تجربتك، فملاحظاتك تساعدنا على تحسين الخدمة.",
+                        data.extraDetails,
+                        "شكرًا لوقتك وثقتك."
+                    ];
+                }
+            }
+        };
+
+        const messageForm = document.getElementById("messageForm");
+        const templateTypeInput = document.getElementById("templateType");
+        const customerNameInput = document.getElementById("customerName");
+        const businessNameInput = document.getElementById("businessName");
+        const orderNumberInput = document.getElementById("orderNumber");
+        const amountInput = document.getElementById("amount");
+        const dateValueInput = document.getElementById("dateValue");
+        const timeValueInput = document.getElementById("timeValue");
+        const extraDetailsInput = document.getElementById("extraDetails");
+
+        const templatePreview = document.getElementById("templatePreview");
+        const errorMessage = document.getElementById("errorMessage");
+        const resultBox = document.getElementById("resultBox");
+        const generatedMessage = document.getElementById("generatedMessage");
+
+        const copyButton = document.getElementById("copyButton");
+        const openWhatsappButton = document.getElementById("openWhatsappButton");
+        const sampleButton = document.getElementById("sampleButton");
+        const clearButton = document.getElementById("clearButton");
+        const editButton = document.getElementById("editButton");
+
+        let currentMessage = "";
+
+        function greeting(customerName) {
+            return customerName
+                ? `السلام عليكم ${customerName}،`
+                : "السلام عليكم،";
+        }
+
+        function closing(businessName) {
+            return businessName
+                ? `مع تحيات ${businessName}.`
+                : "مع خالص التحية.";
+        }
+
+        function sentence(...parts) {
+            const text = parts
+                .map((part) => String(part || "").trim())
+                .filter(Boolean)
+                .join(" ");
+
+            if (!text) {
+                return "";
+            }
+
+            return /[.!؟]$/.test(text) ? text : `${text}.`;
+        }
+
+        function formatDate(value) {
+            if (!value) {
+                return "";
+            }
+
+            const date = new Date(`${value}T00:00:00`);
+
+            if (Number.isNaN(date.getTime())) {
+                return value;
+            }
+
+            return new Intl.DateTimeFormat("ar-SA", {
+                year: "numeric",
+                month: "long",
+                day: "numeric"
+            }).format(date);
+        }
+
+        function formatTime(value) {
+            if (!value) {
+                return "";
+            }
+
+            const [hourString, minuteString] = value.split(":");
+            const hour = Number(hourString);
+            const minute = Number(minuteString);
+
+            if (
+                Number.isNaN(hour) ||
+                Number.isNaN(minute)
+            ) {
+                return value;
+            }
+
+            const date = new Date();
+            date.setHours(hour, minute, 0, 0);
+
+            return new Intl.DateTimeFormat("ar-SA", {
+                hour: "numeric",
+                minute: "2-digit"
+            }).format(date);
+        }
+
+        function dateTimeLine(data) {
+            const parts = [];
+
+            if (data.dateValue) {
+                parts.push(`التاريخ: ${formatDate(data.dateValue)}`);
+            }
+
+            if (data.timeValue) {
+                parts.push(`الوقت: ${formatTime(data.timeValue)}`);
+            }
+
+            return parts.length ? `${parts.join(" — ")}.` : "";
+        }
+
+        function cleanMessageLines(lines) {
+            return lines
+                .map((line) => String(line || "").trim())
+                .filter(Boolean)
+                .join("\n\n");
+        }
+
+        function getFormData() {
+            return {
+                customerName: customerNameInput.value.trim(),
+                businessName: businessNameInput.value.trim(),
+                orderNumber: orderNumberInput.value.trim(),
+                amount: amountInput.value.trim(),
+                dateValue: dateValueInput.value,
+                timeValue: timeValueInput.value,
+                extraDetails: extraDetailsInput.value.trim()
+            };
+        }
+
+        function updateTemplatePreview() {
+            const selectedTemplate = templates[templateTypeInput.value];
+            templatePreview.textContent = selectedTemplate.preview;
+        }
+
+        function showError(message) {
+            errorMessage.textContent = message;
+            errorMessage.classList.add("is-visible");
+        }
+
+        function clearError() {
+            errorMessage.textContent = "";
+            errorMessage.classList.remove("is-visible");
+        }
+
+        messageForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+            clearError();
+
+            const selectedTemplate = templates[templateTypeInput.value];
+
+            if (!selectedTemplate) {
+                showError("يرجى اختيار نوع رسالة صحيح.");
+                return;
+            }
+
+            const data = getFormData();
+            currentMessage = cleanMessageLines(
+                selectedTemplate.build(data)
+            );
+
+            if (!currentMessage) {
+                showError("تعذر إنشاء الرسالة.");
+                return;
+            }
+
+            generatedMessage.textContent = currentMessage;
+            generatedMessage.contentEditable = "false";
+            resultBox.classList.add("is-visible");
+        });
+
+        templateTypeInput.addEventListener("change", updateTemplatePreview);
+
+        sampleButton.addEventListener("click", () => {
+            templateTypeInput.value = "order-ready";
+            customerNameInput.value = "أحمد";
+            businessNameInput.value = "متجر النخبة";
+            orderNumberInput.value = "1042";
+            amountInput.value = "150 ريال";
+            dateValueInput.value = "";
+            timeValueInput.value = "17:00";
+            extraDetailsInput.value =
+                "الاستلام من الفرع الرئيسي، ويرجى إحضار رقم الطلب.";
+
+            updateTemplatePreview();
+        });
+
+        clearButton.addEventListener("click", () => {
+            messageForm.reset();
+            templateTypeInput.value = "order-confirmation";
+
+            currentMessage = "";
+            generatedMessage.textContent = "";
+            generatedMessage.contentEditable = "false";
+
+            resultBox.classList.remove("is-visible");
+            clearError();
+            updateTemplatePreview();
+        });
+
+        copyButton.addEventListener("click", async () => {
+            if (!currentMessage) {
+                showError("أنشئ الرسالة أولًا.");
+                return;
+            }
+
+            if (generatedMessage.contentEditable === "true") {
+                currentMessage = generatedMessage.textContent.trim();
+            }
+
+            const copied = await copyText(currentMessage, copyButton);
+
+            if (!copied) {
+                showError("تعذر نسخ الرسالة تلقائيًا.");
+            }
+        });
+
+        openWhatsappButton.addEventListener("click", () => {
+            if (!currentMessage) {
+                showError("أنشئ الرسالة أولًا.");
+                return;
+            }
+
+            if (generatedMessage.contentEditable === "true") {
+                currentMessage = generatedMessage.textContent.trim();
+            }
+
+            const url =
+                "https://wa.me/?text=" +
+                encodeURIComponent(currentMessage);
+
+            window.open(url, "_blank", "noopener,noreferrer");
+        });
+
+        editButton.addEventListener("click", () => {
+            if (!currentMessage) {
+                showError("أنشئ الرسالة أولًا.");
+                return;
+            }
+
+            const isEditing =
+                generatedMessage.contentEditable === "true";
+
+            if (isEditing) {
+                currentMessage = generatedMessage.textContent.trim();
+                generatedMessage.contentEditable = "false";
+                editButton.textContent = "تعديل الرسالة";
+            } else {
+                generatedMessage.contentEditable = "true";
+                generatedMessage.focus();
+                editButton.textContent = "حفظ التعديل";
+            }
+        });
+
+        updateTemplatePreview();
+    </script>
+</body>
+</html>
