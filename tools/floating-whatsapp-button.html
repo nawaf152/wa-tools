@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>مولد زر واتساب عائم للمواقع | كود HTML جاهز</title>
+
+    <meta name="description"
+          content="أنشئ زر واتساب عائم لموقعك مع تخصيص الرقم والرسالة واللون والحجم والمكان، ثم انسخ كود HTML وCSS جاهزًا.">
+
+    <link rel="canonical"
+          href="https://ramfqconnect.shop/tools/floating-whatsapp-button.html">
+
+    <meta property="og:title" content="مولد زر واتساب عائم للمواقع">
+    <meta property="og:description"
+          content="أنشئ زر واتساب عائمًا لموقعك وانسخ الكود الجاهز خلال ثوانٍ.">
+    <meta property="og:url"
+          content="https://ramfqconnect.shop/tools/floating-whatsapp-button.html">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="مولد زر واتساب عائم للمواقع">
+    <meta name="twitter:description"
+          content="مولد مجاني لإنشاء زر واتساب عائم بكود HTML وCSS جاهز.">
+
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+    <!-- Google Analytics -->
+    <script async
+            src="https://www.googletagmanager.com/gtag/js?id=G-122WQ1BJ20"></script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag("js", new Date());
+        gtag("config", "G-122WQ1BJ20");
+    </script>
+
+    <!-- Google AdSense -->
+    <script async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5079491439257801"
+            crossorigin="anonymous"></script>
+
+    <style>
+        :root {
+            --primary: #128c7e;
+            --primary-dark: #075e54;
+            --whatsapp: #25d366;
+            --background: #f5f7f9;
+            --card: #ffffff;
+            --text: #17212b;
+            --muted: #667085;
+            --border: #dfe4ea;
+            --danger: #c62828;
+            --shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Tahoma, Arial, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .site-header {
+            background: #ffffff;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .header-inner {
+            max-width: 1180px;
+            margin: auto;
+            padding: 14px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .brand {
+            text-decoration: none;
+            font-size: 21px;
+            font-weight: bold;
+            color: var(--primary-dark);
+        }
+
+        .navigation {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .navigation a {
+            text-decoration: none;
+            color: #344054;
+            font-size: 15px;
+        }
+
+        .navigation a:hover {
+            color: var(--primary);
+        }
+
+        .hero {
+            background:
+                linear-gradient(135deg, rgba(7, 94, 84, 0.96), rgba(18, 140, 126, 0.92));
+            color: #ffffff;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            margin: 0 0 15px;
+            font-size: clamp(28px, 5vw, 46px);
+            line-height: 1.35;
+        }
+
+        .hero p {
+            max-width: 760px;
+            margin: auto;
+            font-size: 18px;
+            opacity: 0.95;
+        }
+
+        .container {
+            max-width: 1180px;
+            margin: auto;
+            padding: 35px 20px 60px;
+        }
+
+        .tool-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(320px, 0.8fr);
+            gap: 25px;
+            align-items: start;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+        }
+
+        .card h2 {
+            margin-top: 0;
+            font-size: 24px;
+        }
+
+        .field {
+            margin-bottom: 18px;
+        }
+
+        .field label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        .field small {
+            display: block;
+            color: var(--muted);
+            margin-top: 6px;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 13px 14px;
+            border: 1px solid #cfd6dd;
+            border-radius: 10px;
+            font: inherit;
+            background: #ffffff;
+            color: var(--text);
+            outline: none;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(18, 140, 126, 0.14);
+        }
+
+        textarea {
+            min-height: 95px;
+            resize: vertical;
+        }
+
+        input[type="color"] {
+            height: 48px;
+            padding: 5px;
+            cursor: pointer;
+        }
+
+        input[type="range"] {
+            padding: 0;
+        }
+
+        .grid-two {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 15px;
+        }
+
+        .range-value {
+            display: inline-block;
+            color: var(--primary-dark);
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .checkbox-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 12px 0;
+        }
+
+        .checkbox-row input {
+            width: auto;
+            transform: scale(1.2);
+        }
+
+        .checkbox-row label {
+            margin: 0;
+            cursor: pointer;
+        }
+
+        .button-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        button {
+            border: 0;
+            border-radius: 10px;
+            padding: 13px 20px;
+            font: inherit;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .primary-button {
+            background: var(--primary);
+            color: #ffffff;
+        }
+
+        .primary-button:hover {
+            background: var(--primary-dark);
+        }
+
+        .secondary-button {
+            background: #edf2f5;
+            color: #263238;
+        }
+
+        .preview-area {
+            min-height: 500px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 14px;
+            background:
+                linear-gradient(rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.82)),
+                repeating-linear-gradient(
+                    45deg,
+                    #edf3f4,
+                    #edf3f4 12px,
+                    #f8fafb 12px,
+                    #f8fafb 24px
+                );
+            border: 1px dashed #aebac2;
+        }
+
+        .preview-site {
+            padding: 28px;
+        }
+
+        .preview-site-line {
+            height: 13px;
+            background: #dfe5e9;
+            border-radius: 20px;
+            margin-bottom: 13px;
+        }
+
+        .preview-site-line.short {
+            width: 50%;
+        }
+
+        .preview-site-line.medium {
+            width: 75%;
+        }
+
+        .preview-title {
+            font-size: 21px;
+            font-weight: bold;
+            margin-bottom: 18px;
+        }
+
+ floating-preview-button {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    width: 58px;
+    height: 58px;
+    padding: 0;
+            border-radius: 999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            color: #ffffff;
+            text-decoration: none;
+            box-shadow: 0 7px 25px rgba(0, 0, 0, 0.25);
+            transition: transform 0.2s ease;
+            z-index: 5;
+        }
+
+        .floating-preview-button:hover {
+            transform: scale(1.05);
+        }
+
+        .floating-preview-button svg {
+            width: 30px;
+            height: 30px;
+            fill: currentColor;
+            flex-shrink: 0;
+        }
+
+.preview-label {
+    display: none;
+}
+        .code-section {
+            margin-top: 26px;
+        }
+
+        .code-box {
+            direction: ltr;
+            text-align: left;
+            width: 100%;
+            min-height: 350px;
+            padding: 18px;
+            border: 1px solid #263238;
+            border-radius: 12px;
+            background: #111820;
+            color: #d7f9e8;
+            font-family: Consolas, "Courier New", monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            resize: vertical;
+        }
+
+        .status-message {
+            display: none;
+            margin-top: 12px;
+            padding: 11px 14px;
+            border-radius: 9px;
+            background: #e7f8ef;
+            color: #17663b;
+            font-weight: bold;
+        }
+
+        .error-message {
+            display: none;
+            margin-bottom: 15px;
+            padding: 11px 14px;
+            border-radius: 9px;
+            background: #ffebee;
+            color: var(--danger);
+            font-weight: bold;
+        }
+
+        .content-section {
+            margin-top: 30px;
+        }
+
+        .content-section h2 {
+            color: var(--primary-dark);
+            font-size: 27px;
+            margin-bottom: 12px;
+        }
+
+        .content-section h3 {
+            font-size: 21px;
+            margin-top: 25px;
+        }
+
+        .content-section ul,
+        .content-section ol {
+            padding-right: 24px;
+        }
+
+        .content-section a {
+            color: var(--primary-dark);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            padding: 14px 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: 0;
+        }
+
+        .site-footer {
+            background: #0d2724;
+            color: #ffffff;
+            padding: 28px 20px;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        @media (max-width: 850px) {
+            .tool-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .navigation {
+                display: none;
+            }
+
+            .grid-two {
+                grid-template-columns: 1fr;
+            }
+
+            .preview-area {
+                min-height: 420px;
+            }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "مولد زر واتساب عائم للمواقع",
+        "url": "https://ramfqconnect.shop/tools/floating-whatsapp-button.html",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Any",
+        "description": "أداة مجانية لإنشاء زر واتساب عائم للمواقع مع كود HTML وCSS جاهز.",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "SAR"
+        }
+    }
+    </script>
+</head>
+
+<body>
+
+<header class="site-header">
+    <div class="header-inner">
+        <a class="brand" href="../index.html">أدوات واتساب العربية</a>
+
+        <nav class="navigation" aria-label="التنقل الرئيسي">
+            <a href="../index.html">الرئيسية</a>
+            <a href="../index.html#tools">الأدوات</a>
+            <a href="../index.html#guides">الأدلة</a>
+            <a href="../about.html">من نحن</a>
+            <a href="../contact.html">اتصل بنا</a>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+    <h1>مولد زر واتساب عائم للمواقع</h1>
+
+    <p>
+        خصص زر التواصل عبر واتساب، شاهد المعاينة مباشرة،
+        ثم انسخ كود HTML وCSS الجاهز وأضفه إلى موقعك.
+    </p>
+</section>
+
+<main class="container">
+
+    <section class="tool-layout" aria-label="أداة إنشاء زر واتساب عائم">
+
+        <div class="card">
+            <h2>إعدادات الزر</h2>
+
+            <div id="errorMessage" class="error-message"></div>
+
+            <div class="field">
+                <label for="phoneNumber">رقم واتساب</label>
+
+                <input
+                    id="phoneNumber"
+                    type="tel"
+                    inputmode="numeric"
+                    placeholder="مثال: 966512345678"
+                    value="966512345678">
+
+                <small>
+                    اكتب الرقم بصيغة دولية من دون علامة + أو مسافات.
+                </small>
+            </div>
+
+            <div class="field">
+                <label for="defaultMessage">الرسالة الافتراضية</label>
+
+                <textarea
+                    id="defaultMessage"
+                    placeholder="مثال: مرحبًا، أريد الاستفسار عن خدماتكم.">مرحبًا، أريد الاستفسار عن خدماتكم.</textarea>
+            </div>
+
+            <div class="field">
+                <label for="buttonText">النص بجانب الأيقونة</label>
+
+                <input
+                    id="buttonText"
+                    type="text"
+                    value="تواصل معنا"
+                    maxlength="30">
+
+                <small>
+                    اترك الحقل فارغًا لعرض أيقونة واتساب فقط.
+                </small>
+            </div>
+
+            <div class="grid-two">
+                <div class="field">
+                    <label for="buttonPosition">مكان الزر</label>
+
+                    <select id="buttonPosition">
+                        <option value="right">يمين الشاشة</option>
+                        <option value="left">يسار الشاشة</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="buttonColor">لون الزر</label>
+
+                    <input
+                        id="buttonColor"
+                        type="color"
+                        value="#25d366">
+                </div>
+            </div>
+
+            <div class="grid-two">
+                <div class="field">
+                    <label for="buttonSize">
+                        حجم الزر
+                        <span id="buttonSizeValue" class="range-value">58px</span>
+                    </label>
+
+                    <input
+                        id="buttonSize"
+                        type="range"
+                        min="45"
+                        max="85"
+                        value="58">
+                </div>
+
+                <div class="field">
+                    <label for="bottomDistance">
+                        المسافة من الأسفل
+                        <span id="bottomDistanceValue" class="range-value">24px</span>
+                    </label>
+
+                    <input
+                        id="bottomDistance"
+                        type="range"
+                        min="10"
+                        max="100"
+                        value="24">
+                </div>
+            </div>
+
+            <div class="field">
+                <label for="sideDistance">
+                    المسافة من جانب الشاشة
+                    <span id="sideDistanceValue" class="range-value">24px</span>
+                </label>
+
+                <input
+                    id="sideDistance"
+                    type="range"
+                    min="10"
+                    max="100"
+                    value="24">
+            </div>
+
+            <div class="checkbox-row">
+                <input
+                    id="showDesktop"
+                    type="checkbox"
+                    checked>
+
+                <label for="showDesktop">
+                    عرض الزر على أجهزة الكمبيوتر
+                </label>
+            </div>
+
+            <div class="checkbox-row">
+                <input
+                    id="showMobile"
+                    type="checkbox"
+                    checked>
+
+                <label for="showMobile">
+                    عرض الزر على الهواتف
+                </label>
+            </div>
+
+            <div class="button-row">
+                <button
+                    id="generateButton"
+                    class="primary-button"
+                    type="button">
+                    توليد الكود
+                </button>
+
+                <button
+                    id="resetButton"
+                    class="secondary-button"
+                    type="button">
+                    إعادة الإعدادات
+                </button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>المعاينة المباشرة</h2>
+
+            <div class="preview-area" id="previewArea">
+                <div class="preview-site">
+                    <div class="preview-title">معاينة موقع إلكتروني</div>
+                    <div class="preview-site-line medium"></div>
+                    <div class="preview-site-line"></div>
+                    <div class="preview-site-line short"></div>
+                    <div class="preview-site-line"></div>
+                </div>
+
+                <a
+                    id="previewButton"
+                    class="floating-preview-button"
+                    href="#"
+                    aria-label="تواصل معنا عبر واتساب">
+
+                    <svg viewBox="0 0 32 32" aria-hidden="true">
+                        <path d="M19.11 17.21c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.15-.42-2.19-1.35-.81-.72-1.36-1.61-1.52-1.88-.16-.27-.02-.42.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47h-.52c-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.27s.97 2.63 1.11 2.81c.14.18 1.91 2.92 4.63 4.1.65.28 1.15.45 1.54.57.65.21 1.24.18 1.71.11.52-.08 1.6-.65 1.83-1.29.23-.63.23-1.18.16-1.29-.07-.11-.25-.18-.52-.32z"/>
+                        <path d="M16.03 3C8.85 3 3 8.77 3 15.87c0 2.27.6 4.49 1.75 6.43L3 29l6.9-1.79a13.1 13.1 0 0 0 6.12 1.55h.01C23.21 28.76 29 23 29 15.9 29 8.8 23.21 3 16.03 3zm0 23.58h-.01a10.9 10.9 0 0 1-5.55-1.51l-.4-.24-4.09 1.06 1.09-3.98-.26-.41a10.65 10.65 0 0 1-1.64-5.63c0-5.9 4.87-10.7 10.87-10.7 2.9 0 5.63 1.12 7.68 3.14a10.57 10.57 0 0 1 3.19 7.58c-.01 5.9-4.88 10.69-10.88 10.69z"/>
+                    </svg>
+
+                    <span id="previewText" class="preview-label">
+                        تواصل معنا
+                    </span>
+                </a>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="card code-section">
+        <h2>الكود الجاهز</h2>
+
+        <p>
+            انسخ الكود كاملًا ثم ألصقه قبل وسم
+            <code>&lt;/body&gt;</code>
+            في موقعك.
+        </p>
+
+        <textarea
+            id="generatedCode"
+            class="code-box"
+            readonly
+            aria-label="كود زر واتساب الناتج"></textarea>
+
+        <div class="button-row">
+            <button
+                id="copyButton"
+                class="primary-button"
+                type="button">
+                نسخ الكود
+            </button>
+        </div>
+
+        <div id="copyStatus" class="status-message">
+            تم نسخ الكود بنجاح.
+        </div>
+    </section>
+
+    <article class="card content-section">
+        <h2>ما هو زر واتساب العائم؟</h2>
+
+        <p>
+            زر واتساب العائم هو زر ثابت يظهر فوق محتوى الموقع أثناء
+            تصفح الصفحة. عند الضغط عليه، ينتقل الزائر مباشرة إلى محادثة
+            واتساب مع رقم النشاط التجاري، ويمكن تضمين رسالة جاهزة لتسهيل
+            بدء المحادثة.
+        </p>
+
+        <p>
+            تساعد هذه الطريقة أصحاب المتاجر والمواقع الخدمية على تقليل
+            الخطوات المطلوبة من العميل للوصول إلى خدمة العملاء أو المبيعات.
+            كما يمكن تخصيص مكان الزر ولونه وحجمه بما يناسب تصميم الموقع.
+        </p>
+
+        <h2>طريقة إضافة زر واتساب إلى الموقع</h2>
+
+        <ol>
+            <li>اكتب رقم واتساب بصيغة دولية.</li>
+            <li>أضف الرسالة التي تريد ظهورها عند فتح المحادثة.</li>
+            <li>حدد لون الزر وحجمه ومكان ظهوره.</li>
+            <li>اضغط على زر توليد الكود.</li>
+            <li>انسخ الكود كاملًا.</li>
+            <li>ألصق الكود قبل وسم إغلاق الصفحة.</li>
+        </ol>
+
+        <h3>أين يمكن استخدام الكود؟</h3>
+
+        <p>
+            يمكن استخدام الكود في مواقع HTML، وصفحات الهبوط، ومدونات
+            Blogger، وبعض أنظمة إدارة المحتوى التي تسمح بإضافة كود HTML
+            مخصص. وفي WordPress يمكن وضعه داخل قالب الموقع أو باستخدام
+            إضافة تسمح بإضافة أكواد إلى تذييل الصفحات.
+        </p>
+
+        <h3>هل يحتاج الزر إلى مكتبة خارجية؟</h3>
+
+        <p>
+            لا. الكود الناتج يحتوي على أيقونة SVG مدمجة، لذلك لا يعتمد
+            على مكتبة أيقونات أو ملف خارجي. وهذا يساعد على تقليل الطلبات
+            الخارجية وتحسين سرعة تحميل الصفحة.
+        </p>
+
+        <h2>نصائح لاستخدام زر التواصل</h2>
+
+        <ul>
+            <li>استخدم رقم العمل بدلًا من الرقم الشخصي.</li>
+            <li>اكتب رسالة افتراضية قصيرة وواضحة.</li>
+            <li>تأكد من أن الزر لا يغطي عناصر مهمة في الجوال.</li>
+            <li>تجنب استخدام حجم كبير يزعج الزائر.</li>
+            <li>اختبر الرابط بعد إضافة الكود إلى الموقع.</li>
+        </ul>
+
+        <h2>أدوات مرتبطة</h2>
+
+        <p>
+            يمكنك أيضًا استخدام
+            <a href="whatsapp-link.html">مولد رابط واتساب</a>
+            لإنشاء رابط مباشر، أو استخدام
+            <a href="qr-generator.html">مولد رمز QR</a>
+            لمشاركة رابط التواصل عبر المطبوعات والشاشات.
+        </p>
+
+        <h2>الأسئلة الشائعة</h2>
+
+        <div class="faq-item">
+            <h3>هل الأداة مجانية؟</h3>
+            <p>
+                نعم، يمكنك توليد الكود ونسخه واستخدامه دون رسوم.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <h3>هل يعمل الزر على الهاتف والكمبيوتر؟</h3>
+            <p>
+                نعم، ويمكنك اختيار عرضه على الهاتف أو الكمبيوتر أو كليهما.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <h3>هل يجب كتابة علامة + قبل رمز الدولة؟</h3>
+            <p>
+                لا، اكتب الرقم بصيغة دولية من دون علامة + أو مسافات.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <h3>هل يمكن تغيير لون زر واتساب؟</h3>
+            <p>
+                نعم، تتيح الأداة اختيار أي لون يناسب هوية موقعك.
+            </p>
+        </div>
+    </article>
+
+</main>
+
+<footer class="site-footer">
+    <div class="footer-links">
+        <a href="../about.html">من نحن</a>
+        <a href="../contact.html">اتصل بنا</a>
+        <a href="../privacy.html">سياسة الخصوصية</a>
+        <a href="../terms.html">الشروط والأحكام</a>
+    </div>
+
+    <div>
+        جميع الحقوق محفوظة © 2026 أدوات واتساب العربية
+    </div>
+</footer>
+
+<script>
+    "use strict";
+
+    const phoneNumber = document.getElementById("phoneNumber");
+    const defaultMessage = document.getElementById("defaultMessage");
+    const buttonText = document.getElementById("buttonText");
+    const buttonPosition = document.getElementById("buttonPosition");
+    const buttonColor = document.getElementById("buttonColor");
+    const buttonSize = document.getElementById("buttonSize");
+    const bottomDistance = document.getElementById("bottomDistance");
+    const sideDistance = document.getElementById("sideDistance");
+    const showDesktop = document.getElementById("showDesktop");
+    const showMobile = document.getElementById("showMobile");
+
+    const buttonSizeValue = document.getElementById("buttonSizeValue");
+    const bottomDistanceValue =
+        document.getElementById("bottomDistanceValue");
+    const sideDistanceValue =
+        document.getElementById("sideDistanceValue");
+
+    const previewButton = document.getElementById("previewButton");
+    const previewText = document.getElementById("previewText");
+    const generatedCode = document.getElementById("generatedCode");
+    const errorMessage = document.getElementById("errorMessage");
+    const copyStatus = document.getElementById("copyStatus");
+
+    const generateButton = document.getElementById("generateButton");
+    const copyButton = document.getElementById("copyButton");
+    const resetButton = document.getElementById("resetButton");
+
+    function cleanPhoneNumber(value) {
+        return value.replace(/\D/g, "");
+    }
+
+    function escapeHtml(value) {
+        return value
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    }
+
+    function showError(message) {
+        errorMessage.textContent = message;
+        errorMessage.style.display = "block";
+    }
+
+    function hideError() {
+        errorMessage.textContent = "";
+        errorMessage.style.display = "none";
+    }
+
+    function getDisplayRules() {
+        let rules = "";
+
+        if (!showDesktop.checked && showMobile.checked) {
+            rules = `
+@media (min-width: 769px) {
+    .generated-whatsapp-button {
+        display: none !important;
+    }
+}`;
+        }
+
+        if (showDesktop.checked && !showMobile.checked) {
+            rules = `
+@media (max-width: 768px) {
+    .generated-whatsapp-button {
+        display: none !important;
+    }
+}`;
+        }
+
+        if (!showDesktop.checked && !showMobile.checked) {
+            rules = `
+.generated-whatsapp-button {
+    display: none !important;
+}`;
+        }
+
+        return rules;
+    }
+
+    function updatePreview() {
+        const position = buttonPosition.value;
+        const color = buttonColor.value;
+        const size = Number(buttonSize.value);
+        const bottom = Number(bottomDistance.value);
+        const side = Number(sideDistance.value);
+        const text = buttonText.value.trim();
+
+        buttonSizeValue.textContent = `${size}px`;
+        bottomDistanceValue.textContent = `${bottom}px`;
+        sideDistanceValue.textContent = `${side}px`;
+
+        previewButton.style.backgroundColor = color;
+previewButton.style.width = `${size}px`;
+previewButton.style.height = `${size}px`;
+        previewButton.style.bottom = `${bottom}px`;
+        previewButton.style.right =
+            position === "right" ? `${side}px` : "auto";
+        previewButton.style.left =
+            position === "left" ? `${side}px` : "auto";
+
+        previewText.textContent = text;
+        previewText.style.display = text ? "inline" : "none";
+
+        const icon = previewButton.querySelector("svg");
+        icon.style.width = `${Math.round(size * 0.52)}px`;
+        icon.style.height = `${Math.round(size * 0.52)}px`;
+
+        generateCode(false);
+    }
+
+    function generateCode(showValidation = true) {
+        hideError();
+
+        const phone = cleanPhoneNumber(phoneNumber.value);
+        const message = defaultMessage.value.trim();
+        const text = buttonText.value.trim();
+        const position = buttonPosition.value;
+        const color = buttonColor.value;
+        const size = Number(buttonSize.value);
+        const bottom = Number(bottomDistance.value);
+        const side = Number(sideDistance.value);
+
+        if (showValidation && phone.length < 8) {
+            showError(
+                "يرجى كتابة رقم واتساب صحيح بصيغة دولية."
+            );
+            return;
+        }
+
+        const safeText = escapeHtml(text || "تواصل عبر واتساب");
+        const encodedMessage = encodeURIComponent(message);
+
+        const sideProperty =
+            position === "right"
+                ? `right: ${side}px;`
+                : `left: ${side}px;`;
+
+        const whatsappUrl =
+            `https://wa.me/${phone || "966512345678"}` +
+            (message ? `?text=${encodedMessage}` : "");
+
+const labelHtml = "";
+
+        const displayRules = getDisplayRules();
+
+        const code = `<!-- زر واتساب عائم -->
+<a
+    href="${whatsappUrl}"
+    class="generated-whatsapp-button"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="${safeText}">
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+        <path d="M19.11 17.21c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.15-.42-2.19-1.35-.81-.72-1.36-1.61-1.52-1.88-.16-.27-.02-.42.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47h-.52c-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.27s.97 2.63 1.11 2.81c.14.18 1.91 2.92 4.63 4.1.65.28 1.15.45 1.54.57.65.21 1.24.18 1.71.11.52-.08 1.6-.65 1.83-1.29.23-.63.23-1.18.16-1.29-.07-.11-.25-.18-.52-.32z"/>
+        <path d="M16.03 3C8.85 3 3 8.77 3 15.87c0 2.27.6 4.49 1.75 6.43L3 29l6.9-1.79a13.1 13.1 0 0 0 6.12 1.55h.01C23.21 28.76 29 23 29 15.9 29 8.8 23.21 3 16.03 3zm0 23.58h-.01a10.9 10.9 0 0 1-5.55-1.51l-.4-.24-4.09 1.06 1.09-3.98-.26-.41a10.65 10.65 0 0 1-1.64-5.63c0-5.9 4.87-10.7 10.87-10.7 2.9 0 5.63 1.12 7.68 3.14a10.57 10.57 0 0 1 3.19 7.58c-.01 5.9-4.88 10.69-10.88 10.69z"/>
+    </svg>
+    ${labelHtml}
+</a>
+
+<style>
+.generated-whatsapp-button {
+    position: fixed;
+    ${sideProperty}
+    bottom: ${bottom}px;
+ width: ${size}px;
+height: ${size}px;
+padding: 0;
+    border-radius: 999px;
+    background: ${color};
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.25);
+    z-index: 9999;
+    transition: transform 0.2s ease;
+}
+
+.generated-whatsapp-button:hover {
+    transform: scale(1.06);
+}
+
+.generated-whatsapp-button svg {
+    width: ${Math.round(size * 0.52)}px;
+    height: ${Math.round(size * 0.52)}px;
+    fill: currentColor;
+    flex-shrink: 0;
+}
+
+.generated-whatsapp-button span {
+    white-space: nowrap;
+}
+
+${displayRules}
+</style>`;
+
+        generatedCode.value = code;
+        previewButton.href = whatsappUrl;
+    }
+
+    async function copyGeneratedCode() {
+        if (!generatedCode.value.trim()) {
+            generateCode(true);
+        }
+
+        try {
+            await navigator.clipboard.writeText(generatedCode.value);
+        } catch (error) {
+            generatedCode.focus();
+            generatedCode.select();
+            document.execCommand("copy");
+        }
+
+        copyStatus.style.display = "block";
+
+        window.setTimeout(() => {
+            copyStatus.style.display = "none";
+        }, 2500);
+    }
+
+    function resetSettings() {
+        phoneNumber.value = "966512345678";
+        defaultMessage.value =
+            "مرحبًا، أريد الاستفسار عن خدماتكم.";
+        buttonText.value = "تواصل معنا";
+        buttonPosition.value = "right";
+        buttonColor.value = "#25d366";
+        buttonSize.value = "58";
+        bottomDistance.value = "24";
+        sideDistance.value = "24";
+        showDesktop.checked = true;
+        showMobile.checked = true;
+
+        hideError();
+        updatePreview();
+    }
+
+    const liveFields = [
+        phoneNumber,
+        defaultMessage,
+        buttonText,
+        buttonPosition,
+        buttonColor,
+        buttonSize,
+        bottomDistance,
+        sideDistance,
+        showDesktop,
+        showMobile
+    ];
+
+    liveFields.forEach((field) => {
+        field.addEventListener("input", updatePreview);
+        field.addEventListener("change", updatePreview);
+    });
+
+    generateButton.addEventListener("click", () => {
+        generateCode(true);
+
+        if (errorMessage.style.display !== "block") {
+            document
+                .querySelector(".code-section")
+                .scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+        }
+    });
+
+    copyButton.addEventListener("click", copyGeneratedCode);
+    resetButton.addEventListener("click", resetSettings);
+
+    updatePreview();
+</script>
+
+</body>
+</html>
