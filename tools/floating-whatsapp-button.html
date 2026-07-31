@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -317,7 +317,7 @@
             margin-bottom: 18px;
         }
 
- floating-preview-button {
+        .floating-preview-button {
     position: absolute;
     bottom: 24px;
     right: 24px;
@@ -443,6 +443,100 @@
             text-decoration: none;
         }
 
+
+        .guide-note,
+        .guide-warning {
+            margin: 20px 0;
+            padding: 18px;
+            border-radius: 11px;
+        }
+
+        .guide-note {
+            border: 1px solid #b9ddce;
+            background: #f1faf7;
+        }
+
+        .guide-warning {
+            border: 1px solid #ead9a8;
+            background: #fffaf0;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .feature-card {
+            padding: 18px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: #ffffff;
+        }
+
+        .feature-card h3 {
+            margin-top: 0;
+        }
+
+        .guide-table {
+            width: 100%;
+            margin: 20px 0;
+            border-collapse: collapse;
+        }
+
+        .guide-table th,
+        .guide-table td {
+            padding: 12px;
+            border: 1px solid var(--border);
+            text-align: right;
+            vertical-align: top;
+        }
+
+        .guide-table th {
+            background: #f1faf7;
+        }
+
+        .content-section pre {
+            overflow-x: auto;
+            padding: 18px;
+            border-radius: 12px;
+            background: #102a26;
+            color: #ffffff;
+            direction: ltr;
+            text-align: left;
+        }
+
+        .content-section details {
+            margin-top: 12px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: #ffffff;
+        }
+
+        .content-section summary {
+            padding: 14px 16px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .content-section details p {
+            margin: 0;
+            padding: 0 16px 16px;
+        }
+
+        .guide-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 24px 0;
+        }
+
+        .guide-link {
+            display: inline-block;
+            text-decoration: none;
+        }
+
         @media (max-width: 850px) {
             .tool-layout {
                 grid-template-columns: 1fr;
@@ -458,6 +552,15 @@
 
             .preview-area {
                 min-height: 420px;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .guide-table {
+                display: block;
+                overflow-x: auto;
             }
         }
     </style>
@@ -715,115 +818,270 @@
         </div>
     </section>
 
-    <article class="card content-section">
-        <h2>ما هو زر واتساب العائم؟</h2>
+    <article class="card content-section" aria-labelledby="guide-title">
+        <h2 id="guide-title">كيفية إنشاء زر واتساب عائم لموقعك</h2>
 
         <p>
-            زر واتساب العائم هو زر ثابت يظهر فوق محتوى الموقع أثناء
-            تصفح الصفحة. عند الضغط عليه، ينتقل الزائر مباشرة إلى محادثة
-            واتساب مع رقم النشاط التجاري، ويمكن تضمين رسالة جاهزة لتسهيل
-            بدء المحادثة.
+            تنشئ هذه الأداة زرًا ثابتًا يظهر فوق صفحات الموقع ويقود الزائر
+            إلى محادثة واتساب مع رقم النشاط. يمكنك تخصيص الرقم والرسالة
+            واللون والحجم والجهة والمسافة من أطراف الشاشة، ثم نسخ كود
+            HTML وCSS جاهز وإضافته إلى موقعك.
         </p>
 
-        <p>
-            تساعد هذه الطريقة أصحاب المتاجر والمواقع الخدمية على تقليل
-            الخطوات المطلوبة من العميل للوصول إلى خدمة العملاء أو المبيعات.
-            كما يمكن تخصيص مكان الزر ولونه وحجمه بما يناسب تصميم الموقع.
-        </p>
+        <div class="guide-note">
+            تتم المعالجة وتوليد الكود داخل متصفحك، ولا يحفظ الموقع عمدًا
+            رقم الهاتف أو الرسالة أو إعدادات التصميم في قاعدة بيانات تابعة له.
+        </div>
 
-        <h2>طريقة إضافة زر واتساب إلى الموقع</h2>
+        <h2>خطوات استخدام المولد</h2>
 
         <ol>
-            <li>اكتب رقم واتساب بصيغة دولية.</li>
-            <li>أضف الرسالة التي تريد ظهورها عند فتح المحادثة.</li>
-            <li>حدد لون الزر وحجمه ومكان ظهوره.</li>
-            <li>اضغط على زر توليد الكود.</li>
-            <li>انسخ الكود كاملًا.</li>
-            <li>ألصق الكود قبل وسم إغلاق الصفحة.</li>
+            <li>اكتب رقم واتساب بصيغة دولية دون علامة +.</li>
+            <li>أضف رسالة افتتاحية قصيرة وواضحة.</li>
+            <li>اكتب نصًا بجانب الأيقونة أو اترك الحقل فارغًا لأيقونة فقط.</li>
+            <li>اختر مكان الزر ولونه وحجمه والمسافات المناسبة.</li>
+            <li>حدد ما إذا كان سيظهر على الهاتف أو الكمبيوتر أو كليهما.</li>
+            <li>راجع المعاينة، ثم اضغط «توليد الكود».</li>
+            <li>انسخ الكود كاملًا وألصقه قبل وسم <code>&lt;/body&gt;</code>.</li>
         </ol>
 
-        <h3>أين يمكن استخدام الكود؟</h3>
+        <h2>ما الذي يمكنك تخصيصه؟</h2>
 
+        <div class="feature-grid">
+            <section class="feature-card">
+                <h3>الرقم والرسالة</h3>
+                <p>
+                    تحدد رقم التواصل والنص الذي يظهر للزائر عند فتح المحادثة.
+                </p>
+            </section>
+
+            <section class="feature-card">
+                <h3>النص الظاهر</h3>
+                <p>
+                    يمكنك إظهار عبارة مثل «تواصل معنا» أو الاكتفاء بالأيقونة.
+                </p>
+            </section>
+
+            <section class="feature-card">
+                <h3>اللون والحجم</h3>
+                <p>
+                    اختر لونًا مناسبًا لهوية الموقع وحجمًا واضحًا دون إزعاج.
+                </p>
+            </section>
+
+            <section class="feature-card">
+                <h3>المكان والمسافات</h3>
+                <p>
+                    ضع الزر يمين الشاشة أو يسارها واضبط بعده عن الحواف.
+                </p>
+            </section>
+
+            <section class="feature-card">
+                <h3>الظهور حسب الجهاز</h3>
+                <p>
+                    اعرض الزر على الهاتف أو الكمبيوتر أو على النوعين معًا.
+                </p>
+            </section>
+
+            <section class="feature-card">
+                <h3>معاينة مباشرة</h3>
+                <p>
+                    شاهد أثر التغييرات قبل نسخ الكود وإضافته إلى موقعك.
+                </p>
+            </section>
+        </div>
+
+        <h2>طريقة تركيب الكود</h2>
+
+        <h3>موقع HTML ثابت</h3>
         <p>
-            يمكن استخدام الكود في مواقع HTML، وصفحات الهبوط، ومدونات
-            Blogger، وبعض أنظمة إدارة المحتوى التي تسمح بإضافة كود HTML
-            مخصص. وفي WordPress يمكن وضعه داخل قالب الموقع أو باستخدام
-            إضافة تسمح بإضافة أكواد إلى تذييل الصفحات.
+            افتح ملف الصفحة، ثم ألصق الكود الناتج قبل وسم الإغلاق
+            <code>&lt;/body&gt;</code> مباشرة واحفظ الملف.
         </p>
 
-        <h3>هل يحتاج الزر إلى مكتبة خارجية؟</h3>
+        <pre><code>&lt;!-- محتوى الصفحة --&gt;
 
+&lt;!-- ألصق كود الزر هنا --&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+        <h3>WordPress</h3>
         <p>
-            لا. الكود الناتج يحتوي على أيقونة SVG مدمجة، لذلك لا يعتمد
-            على مكتبة أيقونات أو ملف خارجي. وهذا يساعد على تقليل الطلبات
-            الخارجية وتحسين سرعة تحميل الصفحة.
+            يمكن إضافة الكود عبر قالب فرعي أو أداة تسمح بإدراج HTML في
+            تذييل الموقع. تجنب تعديل ملفات القالب الأساسي مباشرة لأن
+            التحديثات قد تمسح التعديل.
         </p>
 
-        <h2>نصائح لاستخدام زر التواصل</h2>
+        <h3>Blogger وصفحات الهبوط</h3>
+        <p>
+            أضف الكود في قالب المدونة قبل <code>&lt;/body&gt;</code> أو
+            داخل قسم HTML مخصص إذا كانت المنصة تسمح بذلك.
+        </p>
+
+        <div class="guide-warning">
+            احتفظ بنسخة احتياطية من القالب أو الصفحة قبل إضافة أي كود،
+            واختبر التغيير في نسخة تجريبية متى كان ذلك ممكنًا.
+        </div>
+
+        <h2>فهم الكود الناتج</h2>
+
+        <table class="guide-table">
+            <thead>
+                <tr>
+                    <th>الجزء</th>
+                    <th>وظيفته</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>رابط <code>wa.me</code></td>
+                    <td>يفتح المحادثة مع الرقم والرسالة المحددين.</td>
+                </tr>
+                <tr>
+                    <td>عنصر <code>&lt;a&gt;</code></td>
+                    <td>يمثل الزر القابل للنقر داخل الصفحة.</td>
+                </tr>
+                <tr>
+                    <td>أيقونة SVG</td>
+                    <td>تعرض الأيقونة دون الحاجة إلى مكتبة خارجية.</td>
+                </tr>
+                <tr>
+                    <td>CSS ثابت</td>
+                    <td>يثبت الزر فوق محتوى الصفحة ويحدد اللون والحجم والمكان.</td>
+                </tr>
+                <tr>
+                    <td>Media Query</td>
+                    <td>يتحكم في ظهور الزر على الهاتف أو الكمبيوتر.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>أين يفضل وضع الزر؟</h2>
 
         <ul>
-            <li>استخدم رقم العمل بدلًا من الرقم الشخصي.</li>
-            <li>اكتب رسالة افتراضية قصيرة وواضحة.</li>
-            <li>تأكد من أن الزر لا يغطي عناصر مهمة في الجوال.</li>
-            <li>تجنب استخدام حجم كبير يزعج الزائر.</li>
-            <li>اختبر الرابط بعد إضافة الكود إلى الموقع.</li>
+            <li>ضعه في جهة لا تغطي زر السلة أو قائمة الهاتف.</li>
+            <li>اترك مسافة كافية من أسفل الشاشة.</li>
+            <li>اختبره مع شريط ملفات الارتباط إن كان موجودًا.</li>
+            <li>تأكد من عدم تعارضه مع أدوات الدردشة الأخرى.</li>
+            <li>افحصه على شاشة هاتف صغيرة وليس على الكمبيوتر فقط.</li>
         </ul>
 
-        <h2>أدوات مرتبطة</h2>
+        <h2>حدود الأداة</h2>
+
+        <ul>
+            <li>الأداة تولد كود HTML وCSS فقط ولا تعدل موقعك تلقائيًا.</li>
+            <li>لا تتحقق من أن الرقم نشط أو مسجل في واتساب.</li>
+            <li>لا تضمن توافق الكود مع كل قالب أو منشئ صفحات.</li>
+            <li>قد تحتاج إلى تعديل قيمة <code>z-index</code> عند وجود عناصر عائمة أخرى.</li>
+            <li>نجاح المعاينة لا يغني عن الاختبار داخل الموقع الحقيقي.</li>
+        </ul>
+
+        <h2>أخطاء شائعة وحلولها</h2>
+
+        <h3>الزر لا يظهر</h3>
+        <p>
+            تأكد من لصق الكود كاملًا، وأن خيار الظهور على جهازك مفعل،
+            وأنه لا توجد قاعدة CSS أخرى تخفي العنصر.
+        </p>
+
+        <h3>الزر يظهر خلف عنصر آخر</h3>
+        <p>
+            ارفع قيمة <code>z-index</code> في الكود الناتج بعد التأكد من
+            عدم تغطيته لقوائم أو نوافذ مهمة.
+        </p>
+
+        <h3>الزر يغطي محتوى الهاتف</h3>
+        <p>
+            قلل الحجم أو زد المسافة من الأسفل والجانب، ثم اختبر الصفحة
+            على أكثر من قياس شاشة.
+        </p>
+
+        <h3>الرابط يفتح رقمًا خاطئًا</h3>
+        <p>
+            راجع الرقم بصيغة دولية دون + أو مسافات، ثم ولّد الكود من جديد.
+        </p>
+
+        <h3>النص لا يظهر بجانب الأيقونة</h3>
+        <p>
+            تأكد من تعبئة حقل النص ثم توليد الكود مجددًا. عند ترك الحقل
+            فارغًا يظهر الزر كأيقونة دائرية فقط.
+        </p>
+
+        <h2>نصائح للأداء وتجربة المستخدم</h2>
+
+        <ul>
+            <li>استخدم نصًا قصيرًا حتى لا يصبح الزر عريضًا جدًا.</li>
+            <li>اختر لونًا واضحًا مع تباين مناسب.</li>
+            <li>لا تستخدم أكثر من زر تواصل عائم في المكان نفسه.</li>
+            <li>لا تجعل الزر أكبر من اللازم على الهاتف.</li>
+            <li>اختبر فتح الرابط قبل نشر الموقع.</li>
+            <li>استخدم رقم العمل بدل الرقم الشخصي متى أمكن.</li>
+        </ul>
+
+        <h2>الخصوصية والاستخدام المسؤول</h2>
 
         <p>
-            يمكنك أيضًا استخدام
-            <a href="whatsapp-link.html">مولد رابط واتساب</a>
-            لإنشاء رابط مباشر، أو استخدام
-            <a href="qr-generator.html">مولد رمز QR</a>
-            لمشاركة رابط التواصل عبر المطبوعات والشاشات.
+            الرابط الناتج يحتوي رقم الهاتف وقد يحتوي نص الرسالة، لذلك لا
+            تضع بيانات حساسة أو كلمات مرور أو رموز تحقق داخل الرسالة
+            الافتراضية. كما يجب عدم استخدام الزر لإرسال رسائل مزعجة أو
+            غير مطلوبة.
         </p>
+
+        <div class="guide-actions">
+            <a class="secondary-button guide-link" href="whatsapp-link.html">
+                إنشاء رابط واتساب
+            </a>
+
+            <a class="secondary-button guide-link" href="qr-generator.html">
+                إنشاء رمز QR
+            </a>
+        </div>
 
         <h2>الأسئلة الشائعة</h2>
 
-        <div class="faq-item">
-            <h3>هل الأداة مجانية؟</h3>
-            <p>
-                نعم، يمكنك توليد الكود ونسخه واستخدامه دون رسوم.
-            </p>
-        </div>
+        <details>
+            <summary>هل الأداة مجانية؟</summary>
+            <p>نعم، يمكنك توليد الكود ونسخه واستخدامه دون رسوم.</p>
+        </details>
 
-        <div class="faq-item">
-            <h3>هل يعمل الزر على الهاتف والكمبيوتر؟</h3>
+        <details>
+            <summary>هل يعمل الزر على الهاتف والكمبيوتر؟</summary>
             <p>
                 نعم، ويمكنك اختيار عرضه على الهاتف أو الكمبيوتر أو كليهما.
             </p>
-        </div>
+        </details>
 
-        <div class="faq-item">
-            <h3>هل يجب كتابة علامة + قبل رمز الدولة؟</h3>
+        <details>
+            <summary>هل يحتاج الزر إلى مكتبة خارجية؟</summary>
             <p>
-                لا، اكتب الرقم بصيغة دولية من دون علامة + أو مسافات.
+                لا، تتضمن الشفرة أيقونة SVG مدمجة ولا تعتمد على مكتبة أيقونات.
             </p>
-        </div>
+        </details>
 
-        <div class="faq-item">
-            <h3>هل يمكن تغيير لون زر واتساب؟</h3>
+        <details>
+            <summary>هل يمكن إظهار نص بجانب الأيقونة؟</summary>
             <p>
-                نعم، تتيح الأداة اختيار أي لون يناسب هوية موقعك.
+                نعم، اكتب النص في الحقل المخصص. وإذا تركته فارغًا يظهر
+                الزر كأيقونة فقط.
             </p>
-        </div>
+        </details>
+
+        <details>
+            <summary>هل تتحقق الأداة من أن الرقم يعمل؟</summary>
+            <p>
+                لا، الأداة تنظف الرقم وتبني الرابط فقط، لذلك يجب اختباره.
+            </p>
+        </details>
+
+        <details>
+            <summary>هل يمكن تغيير الإعدادات بعد تركيب الكود؟</summary>
+            <p>
+                نعم، عد إلى الأداة وولّد كودًا جديدًا ثم استبدل الكود القديم.
+            </p>
+        </details>
     </article>
 
 </main>
-
-<footer class="site-footer">
-    <div class="footer-links">
-        <a href="../about.html">من نحن</a>
-        <a href="../contact.html">اتصل بنا</a>
-        <a href="../privacy.html">سياسة الخصوصية</a>
-        <a href="../terms.html">الشروط والأحكام</a>
-    </div>
-
-    <div>
-        جميع الحقوق محفوظة © 2026 أدوات واتساب العربية
-    </div>
-</footer>
 
 <script>
     "use strict";
@@ -922,8 +1180,12 @@
         sideDistanceValue.textContent = `${side}px`;
 
         previewButton.style.backgroundColor = color;
-previewButton.style.width = `${size}px`;
-previewButton.style.height = `${size}px`;
+        previewButton.style.width = text ? "auto" : `${size}px`;
+        previewButton.style.minWidth = `${size}px`;
+        previewButton.style.height = `${size}px`;
+        previewButton.style.padding = text
+            ? `0 ${Math.max(16, Math.round(size * 0.3))}px`
+            : "0";
         previewButton.style.bottom = `${bottom}px`;
         previewButton.style.right =
             position === "right" ? `${side}px` : "auto";
@@ -971,7 +1233,7 @@ previewButton.style.height = `${size}px`;
             `https://wa.me/${phone || "966512345678"}` +
             (message ? `?text=${encodedMessage}` : "");
 
-const labelHtml = "";
+const labelHtml = text ? `<span>${safeText}</span>` : "";
 
         const displayRules = getDisplayRules();
 
@@ -994,9 +1256,10 @@ const labelHtml = "";
     position: fixed;
     ${sideProperty}
     bottom: ${bottom}px;
- width: ${size}px;
-height: ${size}px;
-padding: 0;
+    width: ${text ? "auto" : `${size}px`};
+    min-width: ${size}px;
+    height: ${size}px;
+    padding: ${text ? `0 ${Math.max(16, Math.round(size * 0.3))}px` : "0"};
     border-radius: 999px;
     background: ${color};
     color: #ffffff;
