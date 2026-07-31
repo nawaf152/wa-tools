@@ -1,17 +1,6 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-
-    <!-- GOOGLE-ANALYTICS-START -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-122WQ1BJ20"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-122WQ1BJ20');
-    </script>
-    <!-- GOOGLE-ANALYTICS-END -->
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -19,22 +8,93 @@
 
     <meta
         name="description"
-        content="تواصل مع فريق موقع أدوات واتساب العربية لإرسال الملاحظات واقتراح الأدوات."
+        content="أرسل ملاحظتك أو أبلغ عن مشكلة تقنية أو اقترح أداة جديدة لموقع أدوات واتساب العربية."
     >
 
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#128c7e">
 
+    <link rel="canonical" href="https://ramfqconnect.shop/contact.html">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="assets/css/style.css">
+
+    <meta property="og:locale" content="ar_SA">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="أدوات واتساب العربية">
+    <meta property="og:title" content="تواصل معنا | أدوات واتساب العربية">
+    <meta
+        property="og:description"
+        content="أرسل ملاحظتك أو أبلغ عن مشكلة أو اقترح أداة جديدة."
+    >
+    <meta
+        property="og:url"
+        content="https://ramfqconnect.shop/contact.html"
+    >
+
+    <meta name="twitter:card" content="summary">
+    <meta
+        name="twitter:title"
+        content="تواصل معنا | أدوات واتساب العربية"
+    >
+    <meta
+        name="twitter:description"
+        content="نموذج التواصل مع فريق موقع أدوات واتساب العربية."
+    >
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        "name": "تواصل معنا",
+        "url": "https://ramfqconnect.shop/contact.html",
+        "description": "صفحة التواصل مع موقع أدوات واتساب العربية.",
+        "inLanguage": "ar",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "أدوات واتساب العربية",
+            "url": "https://ramfqconnect.shop/"
+        }
+    }
+    </script>
+
+    <!-- Google Analytics -->
+    <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-122WQ1BJ20">
+    </script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag("js", new Date());
+        gtag("config", "G-122WQ1BJ20");
+    </script>
+
+    <!-- Google AdSense -->
+    <script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5079491439257801"
+        crossorigin="anonymous">
+    </script>
 
     <style>
         .content-page {
             padding: 56px 0;
         }
 
-        .content-card {
-            max-width: 720px;
-            margin-inline: auto;
+        .contact-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 320px;
+            gap: 28px;
+            align-items: start;
+        }
+
+        .content-card,
+        .contact-info-card {
             padding: 32px;
             border: 1px solid var(--border);
             border-radius: var(--radius);
@@ -42,70 +102,164 @@
             box-shadow: var(--shadow);
         }
 
-        .content-card h1 {
+        .content-card h1,
+        .contact-info-card h2 {
             margin-top: 0;
         }
 
-        .content-card p {
+        .content-card > p,
+        .contact-info-card p,
+        .contact-info-card li {
             color: var(--text-muted);
         }
 
-        .contact-box {
-            margin-top: 24px;
-            padding: 20px;
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            background: #f8fbfa;
+        .form-field {
+            margin-bottom: 20px;
         }
 
-        .contact-email {
-            display: inline-block;
-            margin-top: 8px;
-            color: var(--primary);
+        .form-field label {
+            display: block;
+            margin-bottom: 7px;
+            color: var(--text);
             font-weight: 800;
-            direction: ltr;
+        }
+
+        .form-field input,
+        .form-field select,
+        .form-field textarea {
+            width: 100%;
+            padding: 13px 14px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: #ffffff;
+            color: var(--text);
+            font: inherit;
+        }
+
+        .form-field textarea {
+            min-height: 170px;
+            resize: vertical;
+        }
+
+        .form-field input:focus,
+        .form-field select:focus,
+        .form-field textarea:focus {
+            border-color: var(--primary);
+            outline: 3px solid rgba(18, 140, 126, 0.12);
+        }
+
+        .form-field small {
+            display: block;
+            margin-top: 7px;
+            color: var(--text-muted);
+        }
+
+        .required-mark {
+            color: #b42318;
+        }
+
+        .submit-button {
+            width: 100%;
+            min-height: 48px;
+            border: 0;
+            border-radius: 10px;
+            background: var(--primary);
+            color: #ffffff;
+            font: inherit;
+            font-weight: 800;
+            cursor: pointer;
+        }
+
+        .submit-button:hover {
+            filter: brightness(0.94);
+        }
+
+        .submit-button:disabled {
+            cursor: wait;
+            opacity: 0.7;
+        }
+
+        .form-message {
+            display: none;
+            margin-bottom: 22px;
+            padding: 15px 17px;
+            border-radius: 10px;
+            font-weight: 700;
+        }
+
+        .form-message.success {
+            display: block;
+            border: 1px solid #9ed8b4;
+            background: #eaf8ef;
+            color: #17663b;
+        }
+
+        .form-message.error {
+            display: block;
+            border: 1px solid #f1b5b5;
+            background: #fff0f0;
+            color: #a32020;
+        }
+
+        .contact-info-card ul {
+            padding-right: 22px;
+        }
+
+        .response-time {
+            margin-top: 22px;
+            padding: 16px;
+            border-right: 4px solid var(--primary);
+            border-radius: 9px;
+            background: #f1faf7;
+        }
+
+        .privacy-note {
+            margin-top: 20px;
+            padding-top: 18px;
+            border-top: 1px solid var(--border);
+            font-size: 0.94rem;
+        }
+
+        .privacy-note a {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .honeypot-field {
+            position: absolute !important;
+            left: -10000px !important;
+            width: 1px !important;
+            height: 1px !important;
+            overflow: hidden !important;
+        }
+
+        @media (max-width: 850px) {
+            .contact-layout {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 560px) {
-            .content-card {
+            .content-page {
+                padding: 28px 0;
+            }
+
+            .content-card,
+            .contact-info-card {
                 padding: 22px;
             }
         }
     </style>
-
-    <!-- SEO-START -->
-    <link rel="canonical" href="https://ramfqconnect.shop/contact.html">
-    <link rel="icon" href="favicon.svg" type="image/svg+xml">
-
-    <meta property="og:locale" content="ar_SA">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="أدوات واتساب العربية">
-    <meta property="og:title" content="تواصل معنا | أدوات واتساب العربية">
-    <meta property="og:description" content="تواصل مع فريق موقع أدوات واتساب العربية لإرسال الملاحظات واقتراح الأدوات.">
-    <meta property="og:url" content="https://ramfqconnect.shop/contact.html">
-
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="تواصل معنا | أدوات واتساب العربية">
-    <meta name="twitter:description" content="تواصل مع فريق موقع أدوات واتساب العربية لإرسال الملاحظات واقتراح الأدوات.">
-
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"تواصل معنا | أدوات واتساب العربية","url":"https://ramfqconnect.shop/contact.html","description":"تواصل مع فريق موقع أدوات واتساب العربية لإرسال الملاحظات واقتراح الأدوات.","inLanguage":"ar","isPartOf":{"@type":"WebSite","name":"أدوات واتساب العربية","url":"https://ramfqconnect.shop/"}}</script>
-    <!-- SEO-END -->
-
-
-    <!-- ADSENSE-START -->
-    <script
-        async
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5079491439257801"
-        crossorigin="anonymous">
-    </script>
-    <!-- ADSENSE-END -->
-
 </head>
 
 <body>
     <header class="site-header">
         <div class="container header-content">
-            <a class="logo" href="index.html">
+            <a
+                class="logo"
+                href="index.html"
+                aria-label="الصفحة الرئيسية"
+            >
                 <span class="logo-mark">و</span>
                 <span>أدوات واتساب العربية</span>
             </a>
@@ -120,7 +274,11 @@
                 القائمة
             </button>
 
-            <nav class="main-nav" data-main-nav>
+            <nav
+                class="main-nav"
+                aria-label="التنقل الرئيسي"
+                data-main-nav
+            >
                 <a href="index.html#tools">الأدوات</a>
                 <a href="index.html#guides">الشروحات</a>
                 <a href="about.html">عن الموقع</a>
@@ -131,45 +289,307 @@
 
     <main class="content-page">
         <div class="container">
-            <article class="content-card">
-                <h1>تواصل معنا</h1>
-
-                <p>
-                    نسعد باستقبال الملاحظات واقتراحات الأدوات الجديدة
-                    والإبلاغ عن المشكلات.
-                </p>
-
-                <div class="contact-box">
-                    <strong>البريد الإلكتروني</strong>
+            <div class="contact-layout">
+                <article class="content-card">
+                    <h1>تواصل معنا</h1>
 
                     <p>
-                        استبدل البريد التالي ببريدك الحقيقي قبل نشر الموقع:
+                        استخدم النموذج التالي للإبلاغ عن مشكلة، أو اقتراح
+                        أداة جديدة، أو إرسال استفسار متعلق بالموقع.
                     </p>
 
-                    <a
-                        class="contact-email"
-                        href="mailto:contact@example.com"
-                    >
-                        contact@example.com
-                    </a>
-                </div>
+                    <div
+                        id="formMessage"
+                        class="form-message"
+                        role="status"
+                        aria-live="polite"
+                    ></div>
 
-                <p>
-                    لا ترسل أرقام عملاء أو بيانات حساسة داخل الرسالة.
-                </p>
-            </article>
+                    <form
+                        id="contactForm"
+                        action="send-contact.php"
+                        method="post"
+                    >
+                        <div class="honeypot-field" aria-hidden="true">
+                            <label for="website">
+                                اترك هذا الحقل فارغًا
+                            </label>
+
+                            <input
+                                id="website"
+                                name="website"
+                                type="text"
+                                tabindex="-1"
+                                autocomplete="off"
+                            >
+                        </div>
+
+                        <input
+                            id="startedAt"
+                            name="started_at"
+                            type="hidden"
+                            value=""
+                        >
+
+                        <div class="form-field">
+                            <label for="name">
+                                الاسم
+                                <span class="required-mark">*</span>
+                            </label>
+
+                            <input
+                                id="name"
+                                name="name"
+                                type="text"
+                                minlength="2"
+                                maxlength="100"
+                                autocomplete="name"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-field">
+                            <label for="email">
+                                البريد الإلكتروني
+                                <span class="required-mark">*</span>
+                            </label>
+
+                            <input
+                                id="email"
+                                name="email"
+                                type="email"
+                                maxlength="190"
+                                autocomplete="email"
+                                dir="ltr"
+                                required
+                            >
+
+                            <small>
+                                سنستخدمه فقط للرد على رسالتك عند الحاجة.
+                            </small>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="requestType">
+                                نوع الطلب
+                                <span class="required-mark">*</span>
+                            </label>
+
+                            <select
+                                id="requestType"
+                                name="request_type"
+                                required
+                            >
+                                <option value="">
+                                    اختر نوع الطلب
+                                </option>
+
+                                <option value="الإبلاغ عن خطأ">
+                                    الإبلاغ عن خطأ
+                                </option>
+
+                                <option value="اقتراح أداة">
+                                    اقتراح أداة
+                                </option>
+
+                                <option value="مشكلة تقنية">
+                                    مشكلة تقنية
+                                </option>
+
+                                <option value="استفسار عام">
+                                    استفسار عام
+                                </option>
+
+                                <option value="استفسار عن الخصوصية">
+                                    استفسار عن الخصوصية
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="subject">
+                                عنوان الرسالة
+                                <span class="required-mark">*</span>
+                            </label>
+
+                            <input
+                                id="subject"
+                                name="subject"
+                                type="text"
+                                minlength="3"
+                                maxlength="150"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-field">
+                            <label for="message">
+                                تفاصيل الرسالة
+                                <span class="required-mark">*</span>
+                            </label>
+
+                            <textarea
+                                id="message"
+                                name="message"
+                                minlength="15"
+                                maxlength="5000"
+                                required
+                            ></textarea>
+
+                            <small>
+                                اشرح المشكلة بوضوح، واذكر اسم الأداة
+                                والمتصفح المستخدم عند الإبلاغ عن خطأ.
+                            </small>
+                        </div>
+
+                        <button
+                            id="submitButton"
+                            class="submit-button"
+                            type="submit"
+                        >
+                            إرسال الرسالة
+                        </button>
+                    </form>
+
+                    <p class="privacy-note">
+                        لا ترسل كلمات مرور أو أرقام عملاء أو بيانات حساسة.
+                        تعرف على طريقة معالجة البيانات في
+                        <a href="privacy.html">سياسة الخصوصية</a>.
+                    </p>
+                </article>
+
+                <aside class="contact-info-card">
+                    <h2>ما الطلبات التي نستقبلها؟</h2>
+
+                    <ul>
+                        <li>الإبلاغ عن أداة لا تعمل بصورة صحيحة.</li>
+                        <li>اقتراح أداة مجانية جديدة.</li>
+                        <li>الإبلاغ عن رابط مكسور أو محتوى غير دقيق.</li>
+                        <li>الاستفسار عن الخصوصية واستخدام البيانات.</li>
+                        <li>إرسال ملاحظة عامة عن تجربة الموقع.</li>
+                    </ul>
+
+                    <div class="response-time">
+                        <strong>زمن الرد المتوقع</strong>
+
+                        <p>
+                            نحاول مراجعة الرسائل خلال 3 إلى 5 أيام عمل.
+                            وقد تستغرق بعض الطلبات التقنية وقتًا أطول.
+                        </p>
+                    </div>
+
+                    <p>
+                        إرسال الرسالة لا يضمن تنفيذ جميع المقترحات، لكنه
+                        يساعدنا على تحديد المشكلات والأدوات الأكثر فائدة.
+                    </p>
+                </aside>
+            </div>
         </div>
     </main>
 
     <footer class="site-footer">
         <div class="container">
+            <div class="footer-links">
+                <a href="about.html">عن الموقع</a>
+                <a href="contact.html">تواصل معنا</a>
+                <a href="privacy.html">سياسة الخصوصية</a>
+                <a href="terms.html">شروط الاستخدام</a>
+            </div>
+
+            <p>
+                هذا الموقع مستقل وغير تابع لشركة WhatsApp أو Meta،
+                وتعود العلامات التجارية المذكورة إلى أصحابها.
+            </p>
+
             <div class="copyright">
                 © <span data-current-year></span>
-                أدوات واتساب العربية.
+                أدوات واتساب العربية. جميع الحقوق محفوظة.
             </div>
         </div>
     </footer>
 
     <script src="assets/js/common.js"></script>
+
+    <script>
+        "use strict";
+
+        const startedAt = document.getElementById("startedAt");
+        const contactForm = document.getElementById("contactForm");
+        const submitButton = document.getElementById("submitButton");
+        const formMessage = document.getElementById("formMessage");
+
+        startedAt.value = Math.floor(Date.now() / 1000).toString();
+
+        const statusMessages = {
+            success: {
+                type: "success",
+                text: "تم إرسال رسالتك بنجاح. شكرًا لتواصلك معنا."
+            },
+            send_failed: {
+                type: "error",
+                text: "تعذر إرسال الرسالة حاليًا. يرجى المحاولة لاحقًا."
+            },
+            invalid_request: {
+                type: "error",
+                text: "طريقة إرسال الطلب غير صالحة."
+            },
+            too_fast: {
+                type: "error",
+                text: "تعذر قبول الرسالة. يرجى تعبئة النموذج بصورة طبيعية والمحاولة مجددًا."
+            },
+            invalid_name: {
+                type: "error",
+                text: "يرجى كتابة اسم صحيح."
+            },
+            invalid_email: {
+                type: "error",
+                text: "يرجى كتابة بريد إلكتروني صحيح."
+            },
+            invalid_type: {
+                type: "error",
+                text: "يرجى اختيار نوع الطلب."
+            },
+            invalid_subject: {
+                type: "error",
+                text: "عنوان الرسالة قصير أو غير صالح."
+            },
+            invalid_message: {
+                type: "error",
+                text: "نص الرسالة قصير جدًا أو يتجاوز الحد المسموح."
+            }
+        };
+
+        function showStatusMessage() {
+            const params = new URLSearchParams(window.location.search);
+            const status = params.get("status");
+
+            if (!status || !statusMessages[status]) {
+                return;
+            }
+
+            const messageData = statusMessages[status];
+
+            formMessage.textContent = messageData.text;
+            formMessage.className =
+                `form-message ${messageData.type}`;
+
+            formMessage.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+
+            const cleanUrl =
+                window.location.pathname + window.location.hash;
+
+            window.history.replaceState({}, "", cleanUrl);
+        }
+
+        contactForm.addEventListener("submit", () => {
+            submitButton.disabled = true;
+            submitButton.textContent = "جارٍ الإرسال...";
+        });
+
+        showStatusMessage();
+    </script>
 </body>
 </html>
