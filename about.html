@@ -1,31 +1,86 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-
-    <!-- GOOGLE-ANALYTICS-START -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-122WQ1BJ20"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-122WQ1BJ20');
-    </script>
-    <!-- GOOGLE-ANALYTICS-END -->
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>عن موقع أدوات واتساب العربية</title>
+    <title>من نحن | أدوات واتساب العربية</title>
 
     <meta
         name="description"
-        content="تعرف على موقع أدوات واتساب العربية، وفكرته، وطريقة حماية خصوصية المستخدمين."
+        content="تعرف على منصة أدوات واتساب العربية، سبب إنشائها، الفئة المستهدفة، طريقة عمل الأدوات، وكيفية اقتراح أداة أو الإبلاغ عن مشكلة."
     >
 
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#128c7e">
 
+    <link rel="canonical" href="https://ramfqconnect.shop/about.html">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="assets/css/style.css">
+
+    <meta property="og:locale" content="ar_SA">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="أدوات واتساب العربية">
+    <meta property="og:title" content="من نحن | أدوات واتساب العربية">
+    <meta
+        property="og:description"
+        content="تعرف على فكرة الموقع والأدوات التي يقدمها وطريقة معالجة بيانات المستخدم."
+    >
+    <meta
+        property="og:url"
+        content="https://ramfqconnect.shop/about.html"
+    >
+
+    <meta name="twitter:card" content="summary">
+    <meta
+        name="twitter:title"
+        content="من نحن | أدوات واتساب العربية"
+    >
+    <meta
+        name="twitter:description"
+        content="تعرف على فكرة الموقع والأدوات التي يقدمها وطريقة معالجة بيانات المستخدم."
+    >
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        "name": "من نحن",
+        "url": "https://ramfqconnect.shop/about.html",
+        "description": "صفحة تعريفية بمنصة أدوات واتساب العربية وأهدافها وطريقة عمل أدواتها.",
+        "inLanguage": "ar",
+        "dateModified": "2026-08-01",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "أدوات واتساب العربية",
+            "url": "https://ramfqconnect.shop/"
+        }
+    }
+    </script>
+
+    <!-- Google Analytics -->
+    <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-122WQ1BJ20">
+    </script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag("js", new Date());
+        gtag("config", "G-122WQ1BJ20");
+    </script>
+
+    <!-- Google AdSense -->
+    <script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5079491439257801"
+        crossorigin="anonymous">
+    </script>
 
     <style>
         .content-page {
@@ -33,9 +88,9 @@
         }
 
         .content-card {
-            max-width: 850px;
+            max-width: 920px;
             margin-inline: auto;
-            padding: 32px;
+            padding: 34px;
             border: 1px solid var(--border);
             border-radius: var(--radius);
             background: var(--surface);
@@ -44,11 +99,13 @@
 
         .content-card h1 {
             margin-top: 0;
+            margin-bottom: 16px;
         }
 
         .content-card h2 {
-            margin-top: 32px;
-            margin-bottom: 10px;
+            margin-top: 34px;
+            margin-bottom: 12px;
+            color: var(--text);
         }
 
         .content-card p,
@@ -57,49 +114,98 @@
         }
 
         .content-card ul {
-            padding-right: 22px;
+            padding-right: 24px;
+        }
+
+        .intro-box {
+            margin: 24px 0;
+            padding: 20px;
+            border-right: 4px solid var(--primary);
+            border-radius: 10px;
+            background: #f1faf7;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .value-card {
+            padding: 18px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: #f8fbfa;
+        }
+
+        .value-card h3 {
+            margin-top: 0;
+            margin-bottom: 8px;
+            font-size: 1.05rem;
+        }
+
+        .value-card p {
+            margin-bottom: 0;
+        }
+
+        .action-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 22px;
+        }
+
+        .action-links a {
+            display: inline-block;
+            padding: 11px 17px;
+            border-radius: 9px;
+            background: var(--primary);
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 800;
+        }
+
+        .action-links a.secondary {
+            border: 1px solid var(--border);
+            background: #ffffff;
+            color: var(--primary);
+        }
+
+        .trademark-note {
+            margin-top: 34px;
+            padding: 18px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: #fffaf0;
+        }
+
+        @media (max-width: 760px) {
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 560px) {
+            .content-page {
+                padding: 28px 0;
+            }
+
             .content-card {
                 padding: 22px;
             }
         }
     </style>
-
-    <!-- SEO-START -->
-    <link rel="canonical" href="https://ramfqconnect.shop/about.html">
-    <link rel="icon" href="favicon.svg" type="image/svg+xml">
-
-    <meta property="og:locale" content="ar_SA">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="أدوات واتساب العربية">
-    <meta property="og:title" content="عن موقع أدوات واتساب العربية">
-    <meta property="og:description" content="تعرف على موقع أدوات واتساب العربية، وفكرته، وطريقة حماية خصوصية المستخدمين.">
-    <meta property="og:url" content="https://ramfqconnect.shop/about.html">
-
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="عن موقع أدوات واتساب العربية">
-    <meta name="twitter:description" content="تعرف على موقع أدوات واتساب العربية، وفكرته، وطريقة حماية خصوصية المستخدمين.">
-
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"عن موقع أدوات واتساب العربية","url":"https://ramfqconnect.shop/about.html","description":"تعرف على موقع أدوات واتساب العربية، وفكرته، وطريقة حماية خصوصية المستخدمين.","inLanguage":"ar","isPartOf":{"@type":"WebSite","name":"أدوات واتساب العربية","url":"https://ramfqconnect.shop/"}}</script>
-    <!-- SEO-END -->
-
-
-    <!-- ADSENSE-START -->
-    <script
-        async
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5079491439257801"
-        crossorigin="anonymous">
-    </script>
-    <!-- ADSENSE-END -->
-
 </head>
 
 <body>
     <header class="site-header">
         <div class="container header-content">
-            <a class="logo" href="index.html">
+            <a
+                class="logo"
+                href="index.html"
+                aria-label="الصفحة الرئيسية"
+            >
                 <span class="logo-mark">و</span>
                 <span>أدوات واتساب العربية</span>
             </a>
@@ -114,10 +220,14 @@
                 القائمة
             </button>
 
-            <nav class="main-nav" data-main-nav>
+            <nav
+                class="main-nav"
+                aria-label="التنقل الرئيسي"
+                data-main-nav
+            >
                 <a href="index.html#tools">الأدوات</a>
                 <a href="index.html#guides">الشروحات</a>
-                <a href="about.html">عن الموقع</a>
+                <a href="about.html" aria-current="page">عن الموقع</a>
                 <a href="privacy.html">الخصوصية</a>
             </nav>
         </div>
@@ -126,53 +236,176 @@
     <main class="content-page">
         <div class="container">
             <article class="content-card">
-                <h1>عن الموقع</h1>
+                <h1>من نحن</h1>
 
                 <p>
-                    أدوات واتساب العربية موقع مجاني يوفّر أدوات بسيطة
-                    تساعد الأفراد وأصحاب الأعمال على إنشاء روابط واتساب،
-                    تنسيق أرقام الجوال، إنشاء رموز QR وتجهيز رسائل عربية.
+                    أدوات واتساب العربية منصة مجانية تقدم أدوات عملية
+                    تساعد الأفراد وأصحاب الأعمال على إنجاز مهام مرتبطة
+                    بروابط واتساب، وأرقام الهاتف، ورسائل العملاء، ورموز QR،
+                    دون الحاجة إلى إنشاء حساب.
                 </p>
 
-                <h2>فكرة الموقع</h2>
+                <div class="intro-box">
+                    أنشئ الموقع لتقديم أدوات عربية واضحة وسريعة تحل
+                    مشكلات صغيرة ومتكررة يواجهها المستخدم عند تجهيز روابط
+                    التواصل أو تنسيق الأرقام أو إعداد الرسائل.
+                </div>
+
+                <h2>لماذا أُنشئ الموقع؟</h2>
 
                 <p>
-                    يهدف الموقع إلى توفير أدوات عربية واضحة وسريعة
-                    تعمل مباشرة داخل المتصفح دون الحاجة إلى إنشاء حساب.
+                    توجد كثير من الأدوات المتاحة بلغات أخرى أو بواجهات
+                    معقدة، بينما يحتاج المستخدم العربي غالبًا إلى أداة
+                    مباشرة تشرح له الصيغة الصحيحة وتساعده على الحصول على
+                    نتيجة قابلة للاستخدام خلال وقت قصير.
                 </p>
-
-                <h2>خصوصية المستخدم</h2>
 
                 <p>
-                    صُممت الأدوات بحيث تتم معالجة الأرقام والنصوص داخل
-                    جهاز المستخدم قدر الإمكان، دون تخزينها في قاعدة بيانات.
+                    لذلك يركز الموقع على البساطة، واللغة العربية، والأمثلة
+                    العملية، ومراعاة الاستخدام الشائع في السعودية ودول
+                    الخليج.
                 </p>
 
-                <h2>الأدوات المتوفرة</h2>
+                <h2>لمن صُممت الأدوات؟</h2>
 
                 <ul>
-                    <li>إنشاء رابط واتساب مباشر.</li>
-                    <li>تنسيق رقم الجوال السعودي.</li>
-                    <li>تنسيق قوائم الأرقام دفعة واحدة.</li>
-                    <li>إنشاء رموز QR.</li>
-                    <li>تجهيز رسائل واتساب للأعمال.</li>
+                    <li>أصحاب المتاجر الإلكترونية والمشروعات الصغيرة.</li>
+                    <li>مقدمو الخدمات والعمل الحر.</li>
+                    <li>فرق خدمة العملاء والمبيعات.</li>
+                    <li>أصحاب المواقع والمدونات وصفحات الهبوط.</li>
+                    <li>الأفراد الذين يحتاجون إلى روابط أو رسائل جاهزة.</li>
                 </ul>
 
-                <h2>تنبيه مهم</h2>
+                <h2>ما الذي يقدمه الموقع؟</h2>
+
+                <ul>
+                    <li>إنشاء روابط واتساب مباشرة مع رسالة جاهزة.</li>
+                    <li>تنسيق أرقام الهاتف السعودية.</li>
+                    <li>تنظيف قوائم الأرقام وتوحيد صيغتها.</li>
+                    <li>إنشاء رموز QR للروابط والمواقع.</li>
+                    <li>تجهيز رسائل أعمال عربية.</li>
+                    <li>إنشاء زر واتساب عائم للمواقع.</li>
+                    <li>أدلة وقوالب تساعد على الاستخدام الصحيح.</li>
+                </ul>
+
+                <h2>كيف تعمل الأدوات؟</h2>
 
                 <p>
-                    الموقع غير تابع لشركة WhatsApp أو Meta، ويجب استخدامه
-                    بطريقة قانونية ومسؤولة ودون إرسال رسائل غير مرغوب فيها.
+                    صُممت الأدوات الحالية لتعمل داخل متصفح المستخدم
+                    باستخدام JavaScript. لا يحتاج المستخدم إلى تسجيل
+                    الدخول، ولا نحفظ عمدًا أرقام الهاتف أو الرسائل أو
+                    القوائم التي يدخلها داخل الأدوات الحالية.
                 </p>
+
+                <p>
+                    لمعرفة التفاصيل المتعلقة بالتحليلات وملفات تعريف
+                    الارتباط والخدمات الخارجية، راجع
+                    <a href="privacy.html">سياسة الخصوصية</a>.
+                </p>
+
+                <h2>ما الذي يميز الموقع؟</h2>
+
+                <div class="values-grid">
+                    <div class="value-card">
+                        <h3>أدوات عربية</h3>
+                        <p>
+                            واجهات وتعليمات وأمثلة مكتوبة باللغة العربية.
+                        </p>
+                    </div>
+
+                    <div class="value-card">
+                        <h3>استخدام مباشر</h3>
+                        <p>
+                            لا يحتاج الزائر إلى إنشاء حساب أو تثبيت برنامج.
+                        </p>
+                    </div>
+
+                    <div class="value-card">
+                        <h3>تركيز عملي</h3>
+                        <p>
+                            كل أداة مصممة لحل مهمة محددة وواضحة.
+                        </p>
+                    </div>
+
+                    <div class="value-card">
+                        <h3>خصوصية أفضل</h3>
+                        <p>
+                            تتم معالجة مدخلات الأدوات داخل المتصفح قدر الإمكان.
+                        </p>
+                    </div>
+
+                    <div class="value-card">
+                        <h3>محتوى متخصص</h3>
+                        <p>
+                            أمثلة ونصائح مناسبة للأعمال العربية والسعودية.
+                        </p>
+                    </div>
+
+                    <div class="value-card">
+                        <h3>تحسين مستمر</h3>
+                        <p>
+                            تتم مراجعة الأدوات وتحديثها بناءً على المشكلات والملاحظات.
+                        </p>
+                    </div>
+                </div>
+
+                <h2>الإبلاغ عن مشكلة</h2>
+
+                <p>
+                    عند مواجهة خطأ في إحدى الأدوات، اذكر اسم الأداة،
+                    والخطوات التي قمت بها، والنتيجة التي ظهرت، ونوع الجهاز
+                    والمتصفح المستخدم. تساعد هذه المعلومات على تشخيص
+                    المشكلة بصورة أسرع.
+                </p>
+
+                <h2>اقتراح أداة جديدة</h2>
+
+                <p>
+                    نستقبل اقتراحات الأدوات المجانية التي تحل مشكلة عملية
+                    وواضحة. يفضل وصف المشكلة، والفئة التي تحتاج الأداة،
+                    والنتيجة التي يتوقع المستخدم الحصول عليها.
+                </p>
+
+                <div class="action-links">
+                    <a href="contact.html">
+                        الإبلاغ عن مشكلة
+                    </a>
+
+                    <a
+                        class="secondary"
+                        href="contact.html"
+                    >
+                        اقتراح أداة جديدة
+                    </a>
+                </div>
+
+                <div class="trademark-note">
+                    <strong>تنبيه العلامة التجارية:</strong>
+                    هذا الموقع مستقل وغير تابع لشركة WhatsApp أو Meta،
+                    ولا يمثل خدمة رسمية منهما. تعود الأسماء والعلامات
+                    التجارية المذكورة إلى أصحابها.
+                </div>
             </article>
         </div>
     </main>
 
     <footer class="site-footer">
         <div class="container">
+            <div class="footer-links">
+                <a href="about.html">عن الموقع</a>
+                <a href="contact.html">تواصل معنا</a>
+                <a href="privacy.html">سياسة الخصوصية</a>
+                <a href="terms.html">شروط الاستخدام</a>
+            </div>
+
+            <p>
+                هذا الموقع مستقل وغير تابع لشركة WhatsApp أو Meta،
+                وتعود العلامات التجارية المذكورة إلى أصحابها.
+            </p>
+
             <div class="copyright">
                 © <span data-current-year></span>
-                أدوات واتساب العربية.
+                أدوات واتساب العربية. جميع الحقوق محفوظة.
             </div>
         </div>
     </footer>
