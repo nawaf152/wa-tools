@@ -431,18 +431,6 @@ STYLE_BLOCK = """
         padding: 0 16px 16px;
     }
 
-    .ad-slot {
-        min-height: 110px;
-        margin: 32px auto;
-        display: grid;
-        place-items: center;
-        border: 1px dashed var(--border);
-        border-radius: 12px;
-        color: var(--text-muted);
-        background: #fafafa;
-        font-size: 0.9rem;
-    }
-
     @media (max-width: 600px) {
         .tool-guide {
             padding: 22px;
@@ -452,11 +440,6 @@ STYLE_BLOCK = """
 """
 
 
-AD_PLACEHOLDER = """
-<div class="ad-slot" aria-label="مساحة إعلانية مستقبلية">
-    مساحة مخصصة لإعلان مستقبلي
-</div>
-"""
 
 
 def update_page(relative_path: str, content: str) -> None:
@@ -484,7 +467,6 @@ def update_page(relative_path: str, content: str) -> None:
 
     enhanced_content = (
         "\n<!-- TOOL-CONTENT-START -->\n"
-        + AD_PLACEHOLDER
         + content
         + "\n<!-- TOOL-CONTENT-END -->\n"
     )
